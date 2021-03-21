@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-6">
+            {{ form_widget(form.title, {'attr': {'placeholder': 'Titre'}}) }}
+        </div>
+        <div class="col-6 mt-1">
+            {{ form_widget(form.titleTranslator,  {'attr': {'placeholder': 'Titre traduit'}}) }}
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.firstPhone,  {'attr': {'placeholder': 'Numéro 1 : 36 11 19 24'}}) }}
+        </div>
+        <div class="col-6 mt-1">
+            {{ form_widget(form.lastPhone,  {'attr': {'placeholder': 'Numéro 2 : 36 11 19 24'}}) }}
+        </div>
+        <div class="col-12 my-2">
+            {{ form_widget(form.content) }}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-6">
+            {{ form_widget(form.categories) }}
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.communes) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            {{ form_widget(form.image) }}
+        </div>
+    </div>
+    <div class="pull-right">
+        <button class="btn btn-success admin-margin">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+{{ form_end(form) }}

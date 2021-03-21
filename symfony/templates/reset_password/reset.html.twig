@@ -1,0 +1,15 @@
+{% extends 'connection/login.html.twig' %}
+
+{% block title %}{{ 'home.password_reset'|trans }}{% endblock %}
+{% block _show_message block('title') %}
+{% block _create_or_ligin %}
+    <div class="tab-content">
+        <div role="tabpanel" class="text-justify tab-pane fade in active" id="sign_up">
+            {{ form_errors(resetForm.plainPassword) }}
+            {{ form_start(resetForm) }}
+                {{ form_widget(resetForm.plainPassword) }}
+                <button class="btn btn-primary" style="margin-top: 35px;">{{ 'home.action.send'|trans }}</button>
+            {{ form_end(resetForm) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+<div class="bg-white mt-5 js-content">
+    <div class="">
+        <h2 class="text-center py-5 text-h2 text-dark font-weight-bold">
+            Choisissez une catégorie
+            <br>
+            إختر إحدى الفئات
+        </h2>
+    </div>
+    <div class="d-flex">
+        <div>
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::ELECTRICIEN') }}">
+                <img src="{{ asset('build/images/electrician.svg') }}" alt="Logo électricien" width="70%">
+            </a>
+        </div>
+        <div class="mx-5">
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::PLOMBIER') }}">
+                <img src="{{ asset('build/images/plumber.svg') }}" alt="Logo Plombier" width="70%">
+            </a>
+        </div>
+        <div>
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::MACON') }}">
+                <img src="{{ asset('build/images/builder.svg') }}" alt="Logo Maçon" width="70%">
+            </a>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div>
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::PEINTRE') }}">
+                <img src="{{ asset('build/images/painter.svg') }}" alt="Logo Peintre" width="70%">
+            </a>
+        </div>
+        <div class="mx-5">
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::CARRELEUR') }}">
+                <img src="{{ asset('build/images/tiler.svg') }}" alt="Logo Carreleur" width="70%">
+            </a>
+        </div>
+        <div>
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::MECANICIEN') }}">
+                <img src="{{ asset('build/images/mechanic.svg') }}" alt="Logo Mécanicien" width="70%">
+            </a>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div>
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::JARDINIER') }}">
+                <img src="{{ asset('build/images/gardener.svg') }}" alt="Logo Jardinier" width="70%">
+            </a>
+        </div>
+        <div class="mx-5">
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::MENUISIER') }}">
+                <img src="{{ asset('build/images/menuisier.svg') }}" alt="Logo Carreleur" width="70%">
+            </a>
+        </div>
+        <div>
+            <a href="#" class="js-metier" data-type="{{ constant('App\\Enum\\WorkEnum::AUTRES') }}">
+                <img src="{{ asset('build/images/others.svg') }}" alt="Logo autres métiers" width="70%">
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{% extends 'connection/login.html.twig' %}
+
+{% block title %}{{ 'home.password_reset'|trans }}{% endblock %}
+{% block _show_message '' %}
+{% block _create_or_ligin %}
+    <div class="tab-content">
+        <div role="tabpanel" class="text-justify tab-pane fade in active" id="sign_up">
+            <p>{{ 'home.email.expire_email'|trans|raw }} {{ tokenLifetime|date('g') }} {{ 'home.email.expire_hours_email'|trans }}.</p>
+            <p>{{ 'home.email.check_spam'|trans }} <a href="{{ path('app_forgot_password_request') }}">{{ 'home.email.try'|trans }}</a>.</p>
+        </div>
+    </div>
+{% endblock %}

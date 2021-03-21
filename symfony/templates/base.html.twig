@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html dir="{{ app.request.locale == 'ar' ? 'rtl' : 'ltr' }}" lang="{{ app.request.locale }}">
+<head>
+    <meta charset="{{ app.request.locale == 'fr' ? 'UTF-8' }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{% block description 'website.view.home.index.h1'|trans %} - Prorim"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mirza:wght@500&display=swap" rel="stylesheet">
+    {% block meta_robots '' %}
+    <title>{% block title %}{% endblock %} - Prorim</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body id="page-top" class="{% block body_class %}{% endblock %}">
+        {% block header %}
+            {% include 'layout/_header.html.twig' %}
+        {% endblock %}
+
+        {% block body %}{% endblock %}
+{#        <!-- FOOTER -->#}
+        {% block footer %}
+            {% include 'layout/_footer.html.twig' %}
+        {% endblock %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+        {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+    </body>
+</html>

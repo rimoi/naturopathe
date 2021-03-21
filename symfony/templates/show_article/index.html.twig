@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.request.locale == 'fr' ? article.title : article.titleTranslator }}{% endblock %}
+
+{% block body %}
+    <div class="m-4">
+        <a href="" class="btn btn-secondary mr-2">
+            {{ 'website.view.annonce.action.back'|trans|raw }}
+        </a>
+    </div>
+    <div class="container bg-light p-5">
+        <div class="row js-block-article">
+            <div class="col-sm-8">
+                <div class="text-left">
+                    {% if article.image %}
+                        <img src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="" class="w-75">
+                    {% endif %}
+                </div>
+                <h1 class="my-3">
+                    {{ block('title')|capitalize }}
+                </h1>
+                <div class="text-muted small">
+                    <span>{{ article.createdAt|format_datetime(null, 'short') }}</span>
+                </div>
+                <hr>
+                {% if article.content %}
+                    <div>
+                        <h4 class="h3">{{ 'website.view.annonce.description'|trans }}</h4>
+                        <p>{{ article.content|raw }}</p>
+                    </div>
+                    <hr>
+                {% endif %}
+                <div>
+                    <span class="">{{ 'website.view.annonce.works'|trans }} : </span>
+                    {% for category in article.categories %}
+                        <span class="badge badge-danger">{{ app.request.locale == 'fr' ? category.name : location.nameTranslator }}</span>
+                    {% endfor %}
+                </div>
+                <hr>
+                <div>
+                    <span class="">{{ 'website.view.annonce.location'|trans }} : </span>
+                    {% for location in article.communes %}
+                        <span class="badge badge-danger">{{ app.request.locale == 'fr' ? location.name : location.nameTranslator }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card text-white bg-secondary js-show-contact">
+                    <div class="card-header">{{ 'website.view.annonce.contact'|trans }}</div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            <button type="button" class="js-number btn btn-danger btn-sm">{{ 'website.view.annonce.phone.show'|trans }}</button>
+                        </div>
+                        <div class="d-none js-show-phone">
+                            <div>
+                                <small>{{ 'website.view.annonce.phone.num1'|trans }} &nbsp; : </small>
+                                <small class="font-weight-bold badge badge-danger">{{ article.firstPhone|trim }}</small>
+                            </div>
+                            {% if article.lastPhone %}
+                                <div>
+                                    <small>{{ 'website.view.annonce.phone.num2'|trans }} : </small>
+                                    <small class="font-weight-bold badge badge-danger">{{ article.lastPhone|trim }}</small>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

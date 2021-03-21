@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes réalisations{% endblock %}
+
+{% block body %}
+    <section id="work" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <h2></h2>
+                        <span class="line-bar">...</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <!-- WORK THUMB -->
+                    <div class="work-thumb">
+                        <a href="https://short-edition.com/fr/"  target="_blank">
+                            <img src="{{ asset('build/images/short-edition.jpg') }}" class="img-responsive img-height-265" alt="logo de Short-édition.com">
+                            <div class="work-info">
+                                <h3>Short Edition</h3>
+                                <small> Short Édition est la plateforme littéraire communautaire dédiée aux formats courts : nouvelles, micro-nouvelles, poèmes et BD courte.</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <!-- WORK THUMB -->
+                    <div class="work-thumb">
+                        <a href="http://www.stylosplumes.com/index.php" target="_blank">
+                            <img src="{{ asset('build/images/mes-stylos-plumes.png') }}" class="img-responsive img-height-265" alt="Logo de stylosplumes.com">
+
+                            <div class="work-info">
+                                <h3>Les plumes d'antan</h3>
+                                <small>Site de Florent Perdrieau un collectionneur de vieux stylos.</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <!-- WORK THUMB -->
+                    <div class="work-thumb">
+                        <a href="http://passion-ulm-isere.com/" target="_blank">
+                            <img src="{{ asset('build/images/passion-ulm-isere.png') }}" class="img-responsive img-height-265" alt="Logo Passion ULM ISERE">
+
+                            <div class="work-info">
+                                <h3>Passion ULM ISERE</h3>
+                                <small>Baptême de l'air en ulm pendulaire et ulm multiaxes, promenade en vallée et en montagne, photos aérienne, initialiation au vol (en place arrière).</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

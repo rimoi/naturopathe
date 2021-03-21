@@ -1,0 +1,26 @@
+{% extends 'connection/login.html.twig' %}
+{% block meta_robots %}
+    <meta name="robots" content="noindex"/>
+{% endblock %}
+{% block title %}{{ 'home.password_reset'|trans }}{% endblock %}
+{% block _show_message %}{{ block('title') }}{% endblock %}
+{% block _create_or_ligin %}
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
+            {{ form_start(requestForm) }}
+                {{ form_widget(requestForm.email, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'home.connection.signup.email',
+                    'required': true
+                }}) }}
+                <div>
+                    <small style="color: #fff">
+                        {{ 'home.reset.description'|trans }}
+                    </small>
+                </div>
+
+                <input type="submit" class="form-control" name="submit" value="{{ 'home.action.send'|trans }}">
+            {{ form_end(requestForm) }}
+    </div>
+</div>
+{% endblock %}

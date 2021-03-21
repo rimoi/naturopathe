@@ -1,0 +1,73 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body_content %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>
+                    {% if user.roles and '[]' != user.roles|json_encode %}
+                        {% if 'ROLE_USER' in user.roles %}
+                            <span class="badge">User</span>
+                        {% endif %}
+                        {% if  'ROLE_ADMIN' in user.roles %}
+                            <span class="badge">Admin</span>
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ user.firstName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ user.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ user.phone }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ user.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if user.image %}
+                        <img class="js-avatar" src="{{ vich_uploader_asset(user.image, 'imageFile') }}" alt="Avatar {{ user.pseudo }}" />
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="admin-show">
+        <div>
+            <a class="btn btn-success" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+        </div>
+        <div>
+            {{ include('user/_delete_form.html.twig') }}
+        </div>
+        <div>
+            <a class="btn btn-default" href="{{ path('user_index') }}">< back to list</a>
+        </div>
+    </div>
+{% endblock %}

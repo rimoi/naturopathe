@@ -1,0 +1,55 @@
+<footer class="mt-5" style="margin-top: 13rem !important;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 col-sm-12 col-md-offset-3">
+                <div class="footer-thumb footer-info">
+                    <h2>
+                        <a href="{{ path('home') }}" style="color: red">Prorim</a>
+                    </h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam nulla quidem ratione repellat! At aut culpa, ducimus enim hic illo iste iure laboriosam molestias nam nulla, quo quos voluptate voluptates.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="footer-thumb">
+                    <h2></h2>
+                    <ul class="footer-link">
+                        <li {% if 'about' starts with app.request.attributes.get('_route') %} class="active" {% endif %}><a href="{{ path('about') }}" class="smoothScroll">{{ 'home.nav.about'|trans }}</a></li>
+                        <li {% if 'contact' starts with app.request.attributes.get('_route') %} class="active" {% endif %}><a href="{{ path('contact') }}" class="smoothScroll">{{ 'home.nav.contact'|trans }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="footer-bottom text-center">
+                    <div>
+                        <div class="copyright-text">
+                            <p>Copyright &copy; {{ 'now'|date('Y') }} PRORIM</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-7">
+                        <div class="phone-contact">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{#        <div class="row">#}
+{#            <div class="col-md-12 col-sm-12">#}
+{#                <div class="text-center">#}
+{#                    <div>#}
+{#                        <div class="copyright-text">#}
+{#                            <p> &copy; Tous droits réservés {{ 'now'|date('Y') }}</p>#}
+{#                            <p>Prorim</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-md-6 col-sm-7">#}
+{#                        <div class="phone-contact">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+</footer>

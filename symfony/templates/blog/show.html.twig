@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+{% block description %}{{ article.content|u.truncate(100, '...')|raw }}{% endblock %}
+
+{% block body %}
+    <!-- BLOG HEADER -->
+    <section id="blog-header" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <h2>{{ article.title }}</h2>
+                </div>
+                <div class="col-md-7 col-sm-12">
+                    {% if article.image %}
+                        <img class="img-responsive js-image-article" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="Avatar {{ article.title }}">
+                    {% else %}
+                        <img src="{{ asset('build/images/default-image.png') }}" class="img-responsive js-image-article" alt="Image par défaut">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG DETAIL -->
+    <section id="blog-detail" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <!-- BLOG THUMB -->
+                    <div class="blog-detail-thumb">
+                        <small><i class="fa fa-clock-o"></i> {{ article.createdAt|date('d/m/Y à H:m') }}</small>
+                        <div class="pull-right">
+                            {% for category in article.categories %}
+                                <span class="badge badge-danger badge-pill label-tag" title="{{ category.nameTranslate }}">{{ category.name }}</span>
+                            {% endfor %}
+                            {% for commune in article.communes %}
+                                <span class="badge badge-success badge-pill label-tag" title="{{ commune.nameTranslator }}">{{ commune.name }}</span>
+                            {% endfor %}
+                        </div>
+                        <p class="admin-margin">
+                            {{ article.content|raw }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-title text-center">
+                <h2></h2>
+                <span class="line-bar">...</span>
+            </div>
+            <div class="row">
+                <div id="user-footer" class="col-md-offset-1">
+                    <img class="img-circle pull-left" style="height: 100px; margin-right: 12px" src="{{ user.image ? vich_uploader_asset(user.image, 'imageFile') }}" alt="Image {{ user.pseudo }}">
+                    <div class="name">
+                        <a href="{{ path('about') }}" class="pseudo">{{ user.pseudo }}</a> <br>
+                        <span class="muted">
+                            {{ article.createdAt|date('F Y') }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

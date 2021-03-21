@@ -1,0 +1,8 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~select2/dist/css/select2.min.css';
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "ext/templatemo-style.css";
+@import "./ext/flashy.css";
+@import "./_table.css";
+@import "./_card.css";
+@import "./styles.css";

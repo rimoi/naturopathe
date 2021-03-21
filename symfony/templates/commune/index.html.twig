@@ -1,0 +1,37 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Commune{% endblock %}
+
+{% block body_content %}
+    <h1>Commune</h1>
+    <div class="admin-margin">
+        <a class="btn btn-primary" href="{{ path('commune_new') }}">Nouveau Commune</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commune in communes %}
+            <tr>
+                <td>{{ commune.id }}</td>
+                <td>{{ commune.name }}</td>
+                <td>{{ commune.createdAt ? commune.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('commune_show', {'id': commune.id}) }}">show</a>
+                    <a href="{{ path('commune_edit', {'id': commune.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de commune enregistrer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

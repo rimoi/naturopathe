@@ -1,0 +1,11 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Nouvelle commune{% endblock %}
+
+{% block body_content %}
+    <h1>Créer une nouvelle commune</h1>
+
+    {{ include('commune/_form.html.twig') }}
+
+    <a href="{{ path('commune_index') }}">Retour à la liste</a>
+{% endblock %}

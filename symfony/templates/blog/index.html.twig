@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+{% block description %}{{ 'home.description'|trans }}{% endblock %}
+
+{% block body %}
+    <section id="blog" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                    </div>
+                </div>
+                {% for article in articles %}
+                    <div class="col-md-6 col-sm-6">
+                        <!-- BLOG THUMB -->
+                        <div class="media blog-thumb">
+                            <div class="head-article">
+                                <div>&nbsp;</div>
+                                <div>
+                                    <a href="{{ path('blog_show', { slug: article.slug }) }}">
+                                        {% if article.image %}
+                                            <img class="img-responsive js-image-article" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="Avatar {{ article.title }}">
+                                        {% else %}
+                                            <img src="{{ asset('build/images/default-image.png') }}" class="img-responsive js-image-article" alt="Image par défaut">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="media-body blog-info">
+                                <small><i class="fa fa-clock-o"></i> {{ article.createdAt|date('d/m/Y H:m') }}</small>
+                                {% for tag in article.tags.toArray %}
+                                    <span class="label label-info label-tag">{{ tag.name }}</span>
+                                {% endfor %}
+                                <h3><a href="{{ path('blog_show', {slug: article.slug}) }}">{{ article.title }}</a></h3>
+                                <p>{{ article.content|u.truncate(150, '...')|raw }}</p>
+                                <div class="pull-right">
+                                    <a href="{{ path('blog_show', {slug: article.slug}) }}" class="btn section-btn">{{ 'article.read'|trans }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

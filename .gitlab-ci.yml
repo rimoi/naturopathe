@@ -1,0 +1,48 @@
+stages:
+    - build
+    - static-test
+#    - unit-test
+
+cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+        - symfony/vendor/
+        - symfony/bin/.phpunit
+
+build:
+    stage: build
+    script:
+        - docker build -f "$PWD/docker/apache/Dockerfile" --build-arg proxy="http://10.200.98.5:3128" --build-arg no_proxy="localhost, 127.0.0.1, gitlab.naitways.org, satis.ntw.infra, flex.ntw.infra" -t "my-project-base:base" --rm "$PWD/docker/apache"
+        - docker build -f "$PWD/docker/apache/Dockerfile.dev" -t "registry.naitways.net/naitways/symfony:${CI_COMMIT_REF_SLUG}" --rm "$PWD/docker/apache"
+        - docker push "registry.naitways.net/naitways/symfony:${CI_COMMIT_REF_SLUG}"
+
+phpcs:
+    stage: static-test
+    image: registry.naitways.net/naitways/symfony:${CI_COMMIT_REF_SLUG}
+    tags:
+        - docker
+    before_script:
+        - cd symfony
+        - composer install
+    script:
+        - make phpcs-dry-run
+phpstan:
+    stage: static-test
+    image: registry.naitways.net/naitways/symfony:${CI_COMMIT_REF_SLUG}
+    tags:
+        - docker
+    before_script:
+        - cd symfony
+        - composer install
+    script:
+        - make phpstan
+dumpcheck:
+    stage: static-test
+    image: registry.naitways.net/naitways/symfony:${CI_COMMIT_REF_SLUG}
+    tags:
+        - docker
+    before_script:
+        - cd symfony
+        - composer install
+    script:
+        - make dump

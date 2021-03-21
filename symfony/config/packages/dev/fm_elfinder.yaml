@@ -1,0 +1,15 @@
+fm_elfinder:
+    assets_path: /assets
+    instances:
+        default:
+            locale: fr
+            editor: ckeditor
+            fullscreen: true
+            path_prefix: http://soccer.local.fr/
+            connector:
+                roots:
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads/images/articles/ckeditor
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg'] # Fichiers autorisés
+                        upload_deny: ['all']

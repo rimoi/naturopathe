@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'home.connection.login'|trans }}{% endblock %}
+{% block header '' %}
+{% block footer '' %}
+
+{% block body %}
+    <section class="modal center" id="modal-connect-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="overlay"></div>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-popup">
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="modal-title">
+                                    <h2>
+                                        {% block _show_message %}
+                                            {% if not app.user %}
+                                                {{ 'home.text.welcome'|trans }}
+                                            {% endif %}
+                                            {% if error|default %}
+                                                <div class="alert alert-danger" style="font-size: 53%">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                            {% endif %}
+                                            {% for error in error_registration|default %}
+                                                <div class="alert alert-danger" style="font-size: 53%">{{ error|trans({}, 'security') }}</div>
+                                            {% endfor %}
+                                        {% endblock %}
+                                    </h2>
+                                </div>
+                                {% block _create_or_ligin %}
+                                    {% if app.user %}
+                                        <div class="mb-3" style="color: white">
+                                            {{ 'home.connection.signup.logged'|trans }} {{ app.user.username }} <br><br> <a class="btn btn-danger" href="{{ path('app_logout') }}">{{ 'home.connection.signup.logout'|trans }}</a>
+                                        </div>
+                                    {% else %}
+                                        <!-- NAV TABS -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            {% set registration = error_registration|default %}
+                                            <li class="{{ not registration ? 'active' }}"><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">{{ 'home.connection.login'|trans }}</a></li>
+                                            <li class="{{ registration ? 'active' }}"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">{{ 'home.connection.signup.type'|trans }}</a></li>
+                                        </ul>
+
+                                        <!-- TAB PANES -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane in {{ not registration ? 'active' }}" id="sign_in">
+                                                <form action="{{ path('app_login') }}" method="post">
+
+                                                    <input type="email" class="form-control" name="_username" placeholder="{{ 'home.connection.signup.email'|trans }}" required>
+                                                    <input type="password" class="form-control" name="_password" placeholder="{{ 'home.connection.signup.password'|trans }}" required>
+                                                    <div class="checkbox">
+                                                        <label style="color: #fff;">
+                                                            <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                                                        </label>
+                                                    </div>
+                                                    <input type="hidden" name="_csrf_token"
+                                                           value="{{ csrf_token('authenticate') }}"
+                                                    >
+                                                    <input type="submit" class="form-control" name="submit" value="{{ 'home.action.send'|trans }}">
+                                                </form>
+                                                <a class="forget-password" href="{{ path('app_forgot_password_request') }}">{{ 'home.connection.signup.forgot-password'|trans }}</a>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane in {{ registration ? 'active' }}" id="sign_up">
+                                                    {{ form_start(registrationForm, {'action': path('app_register'), 'method': 'POST'}) }}
+                                                        {{ form_errors(registrationForm) }}
+                                                        {{ form_widget(registrationForm.pseudo, {'attr': {
+                                                            'class': 'form-control',
+                                                            'placeholder': 'home.connection.signup.pseudo'
+                                                        }}) }}
+                                                        {{ form_widget(registrationForm.email, {'attr': {
+                                                            'class': 'form-control',
+                                                            'placeholder': 'home.connection.signup.email'
+                                                        }}) }}
+                                                        {{ form_widget(registrationForm.plainPassword, {'attr': {
+                                                            'class': 'form-control',
+                                                            'placeholder': 'home.connection.signup.password',
+                                                            'required': true
+                                                        }}) }}
+                                                        {{ form_widget(registrationForm.captcha) }}
+                                                        <ul style="background-color: blanchedalmond; list-style:none; margin: 5px">
+                                                            <li>
+                                                                {{ form_errors(registrationForm) }}
+                                                            </li>
+                                                        </ul>
+
+                                                        <input type="submit" class="form-control" name="submit" value="{{ 'home.action.send'|trans }}">
+                                                    {{ form_end(registrationForm) }}
+                                            </div>
+                                            <div>
+                                                <a class="btn btn-primary" href="{{ path('home') }}" style="margin-top: 25px">< &nbsp;&nbsp;{{ 'home.back_home'|trans }}</a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endblock %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

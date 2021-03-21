@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message</title>
+</head>
+<body>
+    Vous avez recu le message de {{ contact.email }} :
+    <br>
+    <br>
+    <p>
+      {{ contact.content|raw }}
+    </p>
+    <footer>
+        Voici c'est coordonnées :
+        <br>
+        <pre>Tél : {{ contact.phone }}</pre>
+        <pre>Nom et prénom : {{ contact.fullName }}</pre>
+        <pre>Date : {{ contact.createdAt|date('d/m/Y à H:m') }}</pre>
+    </footer>
+</body>
+</html>

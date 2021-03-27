@@ -35,7 +35,7 @@
     <meta itemprop="telephone" content="0652069382">
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ host_image ~ 'relaxant.png' }}" />
-    <title>Fatima BENAZZOUZ. Naturopathie – Lifting facial énergétique – Massage ...</title>
+    <title>{% block title %}Naturopathie – Lifting facial énergétique – Massage ... {% endblock %} - Fatima BENAZZOUZ</title>
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.fatimabenazzouz.fr">
     <meta property="og:title" content="Fatima BENAZZOUZ. Naturopathie">
@@ -70,8 +70,6 @@
     {% endblock %}
 
     {% block body %}
-
-
         <div class="container-light" id="header2"><div id="container_324255" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-absolute-container  " style="height: 600px;"><div id="container_324255_inner" style="" class="sb-bloc-inner container_324255_inner container-light bg-imaged">    <style>
                         .container_324255_inner {
                             background-repeat: no-repeat;

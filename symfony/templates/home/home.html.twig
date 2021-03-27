@@ -1,47 +1,703 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    {% set host_image = app.request.schemeAndHttpHost ~ app.request.baseUrl ~ asset('/images/') %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"4a6b8c9d6c","applicationID":"21630134","transactionName":"cV9dR0JYDQpXQUxBWFVVQBxDXw4R","queueTime":0,"applicationTime":135,"agent":""}</script>
+    <script>(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:false}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"4a6b8c9d6c",applicationID:"21630134"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+{#    <base href="//www.fatimabenazzouz.fr">#}
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="/"/>
 
-{% block title %}{{ 'home.nav.home'|trans }}{% endblock %}
-{% block body_class 'site home' %}
+    <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
 
-{% block body %}
-    <header class="masthead container mb-5">
-{#        <div class="row">#}
-{#            <div class="col-3 offset-3">#}
-{#                <span class="js-counter text-white">5537</span>#}
-{#            </div>#}
-{#        </div>#}
-        <div class="d-flex h-50 align-items-center">
-            <div class="text-center">
-                <img src="{{ asset('build/images/logo.svg') }}" alt="Logo Prorim" width="30%">
-                <h2 class="h2 mt-n5">
-                    La première plateforme de mise en contact des clients et professionnels en Mauritanie
-                    <br>
-                    أول منصة لربط الزبناء والمهنيين في موريتانيا
-                </h2>
-                {% block _search %}
-                    {{ form_start(form, {'action': path('home', {'_locale': app.request.locale}), 'method': 'POST', 'attr': {'class': 'mt-5 bg-white p-5 rounded-pill border-red'}}) }}
-                    <div class="row mt-2 mb-n2">
-                        <div class="col-5">
-                            <i class="fas fa-search text-danger"></i>
-                            {{ form_widget(form.keyword, {'attr': {'class': 'w-75 input-search border-0', 'data-locale': app.request.locale}}) }}
-                            <span class="text-muted">|</span>
-                        </div>
-                        <div class="col-4">
-                            <i class="fas fa-map-marker text-danger"></i>
-                            {{ form_widget(form.location, {'attr': {'class': 'input-search border-0 js-select2 w-95', 'placeholder': 'website.view.home.index.search.input.location'}}) }}
-                        </div>
-                        <div class="col-3 text-right">
-                            <button type="submit" class="rounded-pill w-75 input-search ml-n5 border-0 btn btn-danger" title="{{ 'website.view.home.index.search.button.title'|trans }}">{{ 'website.view.home.index.search.button.title'|trans }}</button>
-                        </div>
+    <meta itemprop="url" content="https://www.fatimabenazzouz.fr">
+    <meta itemprop="legalName" content="Fatima BENAZZOUZ. Naturopathie">
+    <meta itemprop="name" content="Fatima BENAZZOUZ. Naturopathie">
+    <meta itemprop="openingHours" content="Mo 09:00-19:00">
+    <meta itemprop="image" content="https://files.sbcdnsb.com/images/a5guj4nzl8kh/businesses/1593718735/iStock_000037023266_Full_-_Copie.jpg">
+{#    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">#}
+{#        <meta itemprop="datePublished" content="2020-04-21">#}
+{#        <meta itemprop="width" content="600">#}
+{#        <meta itemprop="height" content="400">#}
+{#        <meta itemprop="contentSize" content="343150">#}
+{#        <meta itemprop="contentUrl" content="https://files.sbcdnsb.com/images/a5guj4nzl8kh/businesses/1593718735/iStock_000037023266_Full_-_Copie.jpg" />#}
+{#    </div>#}
+{#    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">#}
+{#        <meta itemprop="streetAddress" content="Groslay dans le 95">#}
+{#        <meta itemprop="postalCode" content="Groslay dans le 95">#}
+{#        <meta itemprop="addressLocality" content="Groslay dans le 95">#}
+{#        <meta itemprop="addressCountry" content="France">#}
+{#    </div>#}
+    <meta itemprop="telephone" content="0652069382">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ host_image ~ 'relaxant.png' }}" />
+    <title>Fatima BENAZZOUZ. Naturopathie – Lifting facial énergétique – Massage ...</title>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fatimabenazzouz.fr">
+    <meta property="og:title" content="Fatima BENAZZOUZ. Naturopathie">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Fatima BENAZZOUZ. Naturopathie">
+    <meta name="description" content="Fatima BENAZZOUZ. Naturopathie – Lifting facial énergétique – Massage ...">
+    <meta property="og:description" content="Fatima BENAZZOUZ. Naturopathie – Lifting facial énergétique – Massage ...">
+    <meta property="twitter:description" content="Fatima BENAZZOUZ. Naturopathie – Lifting facial énergétique – Massage ...">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+   <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+        ga('create', 'UA-64177529-59', {'cookieExpires': 31536000,'cookieUpdate': 'false'});
+        ga('send', 'pageview');
+    </script>
+
+
+    <script>window.Deferred=function(){var e=[],i=function(){if(window.jQuery&&window.jQuery.ui)for(;e.length;)e.shift()(window.jQuery);else window.setTimeout(i,250)};return i(),{execute:function(i){window.jQuery&&window.jQuery.ui?i(window.jQuery):e.push(i)}}}();</script>
+</head>
+<body class="view-visitor theme_wide has_header1 has_header2 has_header2_simple has_no_aside has_footer default_page " itemscope itemtype="https://schema.org/HealthAndBeautyBusiness">
+<div id="body-container">
+
+
+    {% block header %}
+        {% include 'layout/_header.html.twig' %}
+    {% endblock %}
+
+    {% block body %}
+
+
+        <div class="container-light" id="header2"><div id="container_324255" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-absolute-container  " style="height: 600px;"><div id="container_324255_inner" style="" class="sb-bloc-inner container_324255_inner container-light bg-imaged">    <style>
+                        .container_324255_inner {
+                            background-repeat: no-repeat;
+                            -webkit-background-size:cover;
+                            -moz-background-size: cover;
+                            -o-background-size: cover;
+                            background-size: cover;
+                            background-position: center;
+                        }
+                        @media (max-width: 992px) {
+                            .container_324255_inner {
+                                background-image: url({{ host_image ~ 'homepage.jpg' }});
+                            }
+                        }
+                        @media (max-width: 1199px) {
+                            .container_324255_inner {
+                                background-image: url({{ host_image ~ 'homepage.jpg' }});
+                            }
+                        }
+                        @media (min-width: 1200px) {
+                            .container_324255_inner {
+                                background-image: url({{ host_image ~ 'homepage.jpg' }});
+                            }
+                        }
+                        .container_324255_inner > .element {
+                            width: 100% !important;
+                            max-width: 3000px !important;
+                            margin-right: auto !important;
+                            margin-left: auto !important;
+                        }
+                    </style>
+                    <div class="element element-absolute-container"><div class="tree-container"><div id="container_9521965" class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute resizable-y bloc-element-spacer  hide-on-mobile " style="width: 25.0%;height: 60px;top: 0.0%;left: 44.4091%;">
+
+                                <div id="container_9521965_inner" style="margin: 10px 10px 10px 10px;" class="sb-bloc-inner container_9521965_inner"><div class="element element-spacer"></div></div></div>
+                            <div id="container_402007" class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute bloc-element-static-container  hide-on-mobile " style="width: 16.3492%;top: 23.8255%;left: 80.7143%;"><div id="container_402007_inner" style="margin: -8px;padding: 25px 35/2px 25px 35/2px;border-top-right-radius: 1000px;border-top-left-radius: 1000px;border-bottom-right-radius: 1000px;border-bottom-left-radius: 1000px;" class="sb-bloc-inner container_402007_inner  sb-display-animated border-radius-max border-radius-max-top-right border-radius-max-top-left border-radius-max-bottom-right border-radius-max-bottom-left border-radius" data-animation-options="{&quot;type&quot;:&quot;zoomIn&quot;,&quot;duration&quot;:500,&quot;delay&quot;:250}">
+                                    <style>
+                                        .container_402007_inner:before {
+                                            content: "";
+                                            position: absolute;
+                                            top: 0;
+                                            bottom: 0;
+                                            left: 0;
+                                            right: 0;
+                                            opacity: 1.0;background-color: #FFFFFF;
+                                            border-top-right-radius: 1000px;
+                                            border-top-left-radius: 1000px;
+                                            border-bottom-right-radius: 1000px;
+                                            border-bottom-left-radius: 1000px;
+                                        }
+                                        .container_402007_inner:after {
+                                            padding-bottom: calc(100% + 15px + 20px - 25px - 25px);
+                                        }
+                                        .container_402007_inner > .element {
+                                            top: 25px;
+                                            left: 15px;
+                                            right: 20px;
+                                            bottom: 25px;
+                                        }
+                                    </style>
+                                    <div class="element element-static-container"><div class="tree-container clearfix">
+                                            <div id="container_402008" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " >
+                                                <div id="container_402008_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_402008_inner"><div class="element element-title sb-vi-text-center">
+                                                        <h2><span class="element-title-inner" style="font-size: 24px;">
+                                                            Me contacter</span>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="container_402011" class=" sb-bloc sb-bloc-level-3 bloc-element-contact  " style="padding: 0px 10px 0px 10px;"><div class="element element-contact contact-md sb-vi-text-center element-contact-vertical"><div class="sb-row media-query">  <div class="sb-col element-contact-item sb-col-sm-12">
+                                                            <div class="element-contact-telmob">
+                                                                <i class="fa fa-phone fa-fw"></i>
+                                                                <p class="element-contact-text" style="margin-bottom: 2px">
+                                                                    <span class="element-contact-link"></span><span>06 52 06 93 82</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div></div></div><div id="container_402016" class=" sb-bloc sb-bloc-level-3 bloc-element-link  " style=""><div id="container_402016_inner" style="border-top-right-radius: 100px;border-top-left-radius: 100px;border-bottom-right-radius: 100px;border-bottom-left-radius: 100px;" class="sb-bloc-inner container_402016_inner border-radius"><div class="element element-link link-sm sb-vi-text-center"><a title="" class=" sb-vi-btn forced-color sb-vi-btn-xs skin_1 content-link" href="/contact">
+  <span>
+    <span class="inner-text">Envoyer un message</span>
+  </span>
+                                                        </a></div></div></div></div></div></div></div></div></div></div></div>
+        </div><div class="container-light sb-row sb-row-table sb-row-custom media-query" id="center"><div class="sb-col sb-col-sm" id="center_inner_wrapper"><div class="" id="h1"><div class="sb-bloc ">
+                    <div class="sb-bloc-inner">
+                        <h1>LE CORPS EST UN JARDIN DONT IL FAUT PRENDRE SOIN…</h1>
                     </div>
-                    {{ form_end(form) }}
-                {% endblock %}
+                </div></div><div class="" id="center_inner"><div class="sections-container"><section class=" section tree-container" id="section_33264" >
+                        <div class="sb-bloc-inner container_401891_inner" id="container_401891_inner" style="padding: 10px 10px 30px 10px;"><div class="subcontainers"><div id="container_324351" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " style="padding: 10px 10px 0px 10px;"><div class="element element-title sb-vi-text-center"><h2><span class="element-title-inner" style="font-size: 36px;">Bienvenue sur le site de Fatima BENAZZOUZ</span></h2>
+                                    </div></div>
+                                <div id="container_324354" class=" sb-bloc sb-bloc-level-3 bloc-element-title" style="padding: 10px 10px 10px 10px;"><div class="element element-title sb-vi-text-center theme-skin"><h3><span class="element-title-inner">
+                                                Différentes techniques au service de votre bien-être…</span></h3></div></div><div class="sb-row sb-row-custom subcontainers media-query"><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 37.0%;"><div id="container_324955" class=" sb-bloc sb-bloc-level-3 bloc-element-image  " style="padding: 10px 10px 10px 10px;"><div id="container_324955_inner" style="border-top-right-radius: 20px;border-top-left-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;" class="sb-bloc-inner container_324955_inner border-radius"><div id="element-image-11199" class="element element-image" data-id="11199"><div class="element-image-container redirect_with_no_text" >
+                                                        <img class="sb-vi-img-responsive img-query" alt="Fatima BENAZZOUZ, Naturopathe à Groslay dans le 95"
+                                                             src="{{ host_image ~ 'huile.jpg' }}"
+{#                                                             srcset="https://files.sbcdnsb.com/images/a5guj4nzl8kh/content/1601907222/35441/100/marianne-cordier-derenne-naturopathe-angers.jpeg 100w, https://files.sbcdnsb.com/images/a5guj4nzl8kh/content/1601907222/35441/200/marianne-cordier-derenne-naturopathe-angers.jpeg 200w, https://files.sbcdnsb.com/images/a5guj4nzl8kh/content/1601907222/35441/400/marianne-cordier-derenne-naturopathe-angers.jpeg 400w, https://files.sbcdnsb.com/images/a5guj4nzl8kh/content/1601907222/35441/600/marianne-cordier-derenne-naturopathe-angers.jpeg 600w, https://files.sbcdnsb.com/images/a5guj4nzl8kh/content/1601907222/35441/800/marianne-cordier-derenne-naturopathe-angers.jpeg 800w"#}
+                                                             sizes="100px"/>
+
+                                                    </div></div></div></div></div><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 63.0%;">
+                                        <div id="container_324357" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 0px 10px;">
+                                            <div class="element element-text displayed_in_1_column" spellcheck="true">
+{#                                                <p style="text-align: justify;">Bienvenue sur le site de <strong>Fatima BENAZZOUZ</strong>, votre <strong>naturopathe</strong> à <strong>Angers</strong>.</p>#}
+
+                                                <p><strong>S</strong>pécialisée en <strong>Réflexologie, Massage Cupping, Ventouses sèches/humides, Naturopathie, Lifting facial énergétique.</strong></p>
+
+                                                <p> Je vous accueille dans mon cabinet à <strong>Groslay dans le 95</strong> et vous propose  des <strong>consultations de naturopathie sur rendez-vous.</strong></p>
+
+                                                <p>bébés,<strong>  </strong>enfants, adolescents, femmes enceintes, adultes, seniors .</p></div></div><div id="container_401963" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 0px 10px 10px 10px;"><div id="container_401963_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_401963_inner sb-display-animated" data-animation-options="{&quot;type&quot;:&quot;fadeInUp&quot;,&quot;duration&quot;:500,&quot;delay&quot;:0}"><div class="element element-static-container"><div class="tree-container clearfix"><div class="sb-row sb-row-custom subcontainers media-query"><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 20.0%;"><div id="container_401964" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 0px 10px;"><div class="element element-icon icon-sm sb-vi-text-center">
+                                                                        <a title="Qui suis-je ?" class="content-link" href="/qui-suis-je">
+                                                                            <div class="element-icon-container  element-icon-circle element-icon-size-2x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                <i class="fa fa-user fa-fw"></i>
+                                                                            </div>
+                                                                        </a></div></div><div id="container_401967" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><p style="text-align: center;"><strong>Votre Praticienne</strong></p></div></div></div><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 20.0%;"><div id="container_401970" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 0px 10px;"><div class="element element-icon icon-sm sb-vi-text-center">
+                                                                        <a title="La Naturopathie" class="content-link" href="/la-naturopathie">
+                                                                            <div class="element-icon-container  element-icon-circle element-icon-size-2x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                <i class="fa fa-fire fa-fw"></i>
+                                                                            </div>
+                                                                        </a></div></div><div id="container_401974" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><p style="text-align: center;"><strong>La Naturopathie</strong></p></div></div></div><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 20.0%;"><div id="container_401972" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 0px 10px;"><div class="element element-icon icon-sm sb-vi-text-center">
+                                                                        <a title="La consultation" class="content-link" href="/la-consultation">
+                                                                            <div class="element-icon-container  element-icon-circle element-icon-size-2x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                <i class="fa fa-clipboard fa-fw"></i>
+                                                                            </div>
+                                                                        </a></div></div><div id="container_401975" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><p style="text-align: center;"><strong>La Consultation</strong></p></div></div></div><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 20.0%;"><div id="container_401976" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 0px 10px;"><div class="element element-icon icon-sm sb-vi-text-center">
+                                                                        <a title="Livre d&#39;or" class="content-link" href="/livre-d-or">
+                                                                            <div class="element-icon-container  element-icon-circle element-icon-size-2x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                <i class="fa fa-pencil fa-fw"></i>
+                                                                            </div>
+                                                                        </a></div></div><div id="container_401978" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><p style="text-align: center;"><strong>Livre d'or</strong></p></div></div></div><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 20.0%;"><div id="container_401991" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 0px 10px;"><div class="element element-icon icon-sm sb-vi-text-center">
+                                                                        <a title="Contact" class="content-link" href="/contact">
+                                                                            <div class="element-icon-container  element-icon-circle element-icon-size-2x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                <i class="fa fa-envelope-o fa-fw"></i>
+                                                                            </div>
+                                                                        </a></div></div><div id="container_401998" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><p style="text-align: center;"><strong>Me contacter</strong></p></div></div></div></div></div></div></div></div></div></div></div></div>
+
+                    </section>
+                    <section class=" section tree-container" id="section_33265" >
+                        <div class="sb-bloc-inner container_401899_inner  bg-imaged" id="container_401899_inner" style="padding: 100px 10px 100px 10px;">    <style>
+                                .container_401899_inner {
+                                    position: relative;
+                                }
+                                .container_401899_inner {
+                                    background-repeat: no-repeat;
+                                    -webkit-background-size:cover;
+                                    -moz-background-size: cover;
+                                    -o-background-size: cover;
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-attachment: fixed;
+                                }
+                                @media (max-width: 992px) {
+                                    .container_401899_inner {
+                                        background-image: url({{ host_image ~ 'homepage1.jpg' }});
+                                    }
+                                }
+                                @media (max-width: 1199px) {
+                                    .container_401899_inner {
+                                        background-image: url({{ host_image ~ 'homepage1.jpg' }});
+                                    }
+                                }
+                                @media (min-width: 1200px) {
+                                    .container_401899_inner {
+                                        background-image: url({{ host_image ~ 'homepage1.jpg' }});
+                                    }
+                                }
+                                @media (max-width: 1024px) {
+                                    .container_401899_inner {
+                                        background-attachment: scroll;
+                                    }
+                                }
+                                @media (max-width: 1024px) {
+                                    .container_401899_inner {
+                                        background-attachment: scroll;
+                                    }
+                                }
+                                .container_401899_inner:before {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    opacity: 0.8;background-color: #e7e8e8;
+                                }
+                            </style>
+                            <div class="subcontainers"><div id="container_401943" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 10px 10px 10px 10px;"><div id="container_401943_inner" style="padding: 30px 30px 30px 30px;border-top-right-radius: 20px;border-top-left-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;" class="sb-bloc-inner container_401943_inner  border-radius">    <style>
+                                            .container_401943_inner {
+                                                position: relative;
+                                            }
+                                            .container_401943_inner:before {
+                                                content: "";
+                                                position: absolute;
+                                                top: 0;
+                                                bottom: 0;
+                                                left: 0;
+                                                right: 0;
+                                                opacity: 1.0;
+                                                /*background-color: #FFFFFF;*/
+                                                border-top-right-radius: 20px;
+                                                border-top-left-radius: 20px;
+                                                border-bottom-right-radius: 20px;
+                                                border-bottom-left-radius: 20px;
+                                            }
+                                            .container_401943_inner {
+                                                width: 100% !important;
+                                                max-width: 1000px !important;
+                                                margin-right: auto !important;
+                                                margin-left: auto !important;
+                                            }
+                                        </style>
+                                        <div class="element element-static-container">
+                                            <div class="tree-container clearfix">
+                                                <div id="container_324749" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " style="padding: 10px 10px 10px 10px;">
+                                                    <div class="element element-title sb-vi-text-center">
+                                                        <h2>
+                                                            <span class="element-title-inner">Fatima BENAZZOUZ, Naturopathe à Groslay dans le 95</span>
+                                                        </h2>
+                                                        <h4>
+                                                            <u>Je vous propose :</u>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                                <div id="container_402049" class="sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">
+                                                    <div id="container_402049_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_402049_inner sb-display-animated" data-animation-options="{&quot;type&quot;:&quot;fadeInRight&quot;,&quot;duration&quot;:1000,&quot;delay&quot;:0}">
+                                                        <div class="element element-static-container">
+                                                            <div class="tree-container clearfix">
+                                                                <div class="sb-row sb-row-custom subcontainers media-query">
+                                                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;">
+                                                                        <div id="container_324372" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">
+                                                                            <div id="container_324372_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324372_inner">
+                                                                                <div class="element element-static-container">
+                                                                                    <div class="tree-container clearfix">
+                                                                                        <div id="container_324426" class="sb-bloc sb-bloc-level-3 bloc-element-icon" style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-icon icon-md sb-vi-text-center">
+                                                                                                <a title="Réflexologie" class="content-link" href="#reflexologie">
+                                                                                                    <div class="element-icon-container element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                                        <i class="fa fa-superpowers fa-fw"></i>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="container_324399" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                                                <p style="text-align: center;">
+                                                                                                    <strong>Réflexologie</strong>
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;">
+                                                                        <div id="container_324369" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 0px 10px 0px 10px;">
+                                                                            <div id="container_324369_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324369_inner">
+                                                                                <div class="element element-static-container">
+                                                                                    <div class="tree-container clearfix">
+                                                                                        <div id="container_324429" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-icon icon-md sb-vi-text-center">
+                                                                                                <a title="Massage Cupping" class="content-link" href="#massage">
+                                                                                                    <div class="element-icon-container  element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                                        <i class="fa fa-leaf fa-fw"></i>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="container_324402" class=" sb-bloc sb-bloc-level-3 bloc-element-text" style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                                                <p style="text-align: center;">
+                                                                                                    <strong>Lifting énergétique</strong>
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="container_402053" class="sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 0px 10px 0px 10px;">
+                                                    <div id="container_402053_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_402053_inner sb-display-animated" data-animation-options="{&quot;type&quot;:&quot;fadeInLeft&quot;,&quot;duration&quot;:1000,&quot;delay&quot;:0}"><div class="element element-static-container"><div class="tree-container clearfix"><div class="sb-row sb-row-custom subcontainers media-query"><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;"><div id="container_324362" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 0px 10px 0px 10px;"><div id="container_324362_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324362_inner"><div class="element element-static-container"><div class="tree-container clearfix"><div id="container_324768" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;"><div class="element element-icon icon-md sb-vi-text-center">
+                                                                                                <a title="Gemmothérapie" class="content-link" href="/gemmotherapie">
+                                                                                                    <div class="element-icon-container  element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                                        <i class="fa fa-smile-o fa-fw"></i>
+                                                                                                    </div>
+                                                                                                </a></div></div><div id="container_324408" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><p style="text-align: center;"><strong>Gemmothérapie</strong></p></div></div></div></div></div></div></div><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;"><div id="container_324388" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 0px 10px 0px 10px;"><div id="container_324388_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324388_inner"><div class="element element-static-container"><div class="tree-container clearfix"><div id="container_324791" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;"><div class="element element-icon icon-md sb-vi-text-center">
+                                                                                                <a title="Ventouses sèches/humides" class="content-link" href="/nutritherapie">
+                                                                                                    <div class="element-icon-container  element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                                        <i class="fa fa-spoon fa-fw"></i>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="container_324414" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                                                <p style="text-align: center;"><strong>Ventouses sèches/humides</strong></p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="container_4020765" class="sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">
+                                                    <div id="container_402049_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_402049_inner sb-display-animated" data-animation-options="{&quot;type&quot;:&quot;fadeInRight&quot;,&quot;duration&quot;:1000,&quot;delay&quot;:0}">
+                                                        <div class="element element-static-container">
+                                                            <div class="tree-container clearfix">
+                                                                <div class="sb-row sb-row-custom subcontainers media-query">
+                                                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;">
+                                                                        <div id="container_324372" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">
+                                                                            <div id="container_324372_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324372_inner">
+                                                                                <div class="element element-static-container">
+                                                                                    <div class="tree-container clearfix">
+                                                                                        <div id="container_324426" class="sb-bloc sb-bloc-level-3 bloc-element-icon" style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-icon icon-md sb-vi-text-center">
+                                                                                                <a title="Réflexologie" class="content-link" href="#reflexologie">
+                                                                                                    <div class="element-icon-container element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                                        <i class="fa fa-superpowers fa-fw"></i>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="container_324399" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                                                <p style="text-align: center;">
+                                                                                                    <strong>Massage Cupping</strong>
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;">
+                                                                        <div id="container_324369" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 0px 10px 0px 10px;">
+                                                                            <div id="container_324369_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324369_inner">
+                                                                                <div class="element element-static-container">
+                                                                                    <div class="tree-container clearfix">
+                                                                                        <div id="container_324429" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-icon icon-md sb-vi-text-center">
+                                                                                                <a title="Massage Cupping" class="content-link" href="#massage">
+                                                                                                    <div class="element-icon-container  element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                                        <i class="fa fa-leaf fa-fw"></i>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="container_324402" class=" sb-bloc sb-bloc-level-3 bloc-element-text" style="padding: 10px 10px 10px 10px;">
+                                                                                            <div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                                                <p style="text-align: center;">
+                                                                                                    <strong>Naturopathie</strong>
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+{#                                                <div id="container_4020777" class="sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">#}
+{#                                                    <div id="container_402049_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_402049_inner sb-display-animated" data-animation-options="{&quot;type&quot;:&quot;fadeInRight&quot;,&quot;duration&quot;:1000,&quot;delay&quot;:0}">#}
+{#                                                        <div class="element element-static-container">#}
+{#                                                            <div class="tree-container clearfix">#}
+{#                                                                <div class="sb-row sb-row-custom subcontainers media-query">#}
+{#                                                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;">#}
+{#                                                                        <div id="container_324372" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">#}
+{#                                                                            <div id="container_324372_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324372_inner">#}
+{#                                                                                <div class="element element-static-container">#}
+{#                                                                                    <div class="tree-container clearfix">#}
+{#                                                                                        <div id="container_324426" class="sb-bloc sb-bloc-level-3 bloc-element-icon" style="padding: 10px 10px 10px 10px;">#}
+{#                                                                                            <div class="element element-icon icon-md sb-vi-text-center">#}
+{#                                                                                                <a title="Réflexologie" class="content-link" href="#reflexologie">#}
+{#                                                                                                    <div class="element-icon-container element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>#}
+{#                                                                                                        <i class="fa fa-superpowers fa-fw"></i>#}
+{#                                                                                                    </div>#}
+{#                                                                                                </a>#}
+{#                                                                                            </div>#}
+{#                                                                                        </div>#}
+{#                                                                                        <div id="container_324399" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;">#}
+{#                                                                                            <div class="element element-text displayed_in_1_column" spellcheck="true">#}
+{#                                                                                                <p style="text-align: center;">#}
+{#                                                                                                    <strong>Ventouses sèches/humides</strong>#}
+{#                                                                                                </p>#}
+{#                                                                                            </div>#}
+{#                                                                                        </div>#}
+{#                                                                                    </div>#}
+{#                                                                                </div>#}
+{#                                                                            </div>#}
+{#                                                                        </div>#}
+{#                                                                    </div>#}
+{#                                                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;">#}
+{#                                                                        <div id="container_324369" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 0px 10px 0px 10px;">#}
+{#                                                                            <div id="container_324369_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324369_inner">#}
+{#                                                                                <div class="element element-static-container">#}
+{#                                                                                    <div class="tree-container clearfix">#}
+{#                                                                                        <div id="container_324429" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;">#}
+{#                                                                                            <div class="element element-icon icon-md sb-vi-text-center">#}
+{#                                                                                                <a title="Massage Cupping" class="content-link" href="#massage">#}
+{#                                                                                                    <div class="element-icon-container  element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>#}
+{#                                                                                                        <i class="fa fa-leaf fa-fw"></i>#}
+{#                                                                                                    </div>#}
+{#                                                                                                </a>#}
+{#                                                                                            </div>#}
+{#                                                                                        </div>#}
+{#                                                                                        <div id="container_324402" class=" sb-bloc sb-bloc-level-3 bloc-element-text" style="padding: 10px 10px 10px 10px;">#}
+{#                                                                                            <div class="element element-text displayed_in_1_column" spellcheck="true">#}
+{#                                                                                                <p style="text-align: center;">#}
+{#                                                                                                    <strong>Phytothérapie</strong>#}
+{#                                                                                                </p>#}
+{#                                                                                            </div>#}
+{#                                                                                        </div>#}
+{#                                                                                    </div>#}
+{#                                                                                </div>#}
+{#                                                                            </div>#}
+{#                                                                        </div>#}
+{#                                                                    </div>#}
+{#                                                                </div>#}
+{#                                                            </div>#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+                                                <div id="container_324758" class="sb-bloc sb-bloc-level-3 bloc-element-text" style="padding: 10px 10px 10px 10px;">
+                                                    <div class="element element-text displayed_in_1_column" spellcheck="true">
+{#                                                        <p style="text-align: justify;">#}
+{#                                                            <strong>Fatima BENAZZOUZ</strong> utilise les techniques de<strong> </strong>#}
+{#                                                            <strong style="color: rgb(68, 68, 68); font-family: 'Source Sans Pro'; font-size: 15px; line-height: 21.4286px; text-align: justify; background-color: rgb(255, 255, 255);">Fleurs de Bach</strong>#}
+{#                                                            <span pro="" sans="" source="" style="font-family: ">, </span>#}
+{#                                                            <strong style="color: rgb(68, 68, 68); font-family: 'Source Sans Pro'; font-size: 15px; line-height: 21.4286px; text-align: justify; background-color: rgb(255, 255, 255);">Phytothérapie</strong>#}
+{#                                                            <span pro="" sans="" source="" style="font-family: ">, </span>#}
+{#                                                            <strong style="color: rgb(68, 68, 68); font-family: 'Source Sans Pro'; font-size: 15px; line-height: 21.4286px; text-align: justify; background-color: rgb(255, 255, 255);">Gemmothérapie</strong>#}
+{#                                                            <span pro="" sans="" source="" style="font-family: ">,#}
+{#                                                            </span>#}
+{#                                                            <strong style="color: rgb(68, 68, 68); font-family: 'Source Sans Pro'; font-size: 15px; line-height: 21.4286px; text-align: justify; background-color: rgb(255, 255, 255);">Nutrithérapie</strong>#}
+{#                                                            <strong> </strong>#}
+{#                                                            pour anticiper et traiter tous vos maux : ​migraine, céphalées, problème de peau, acné, eczéma, gestion des émotions, dépression, troubles du sommeil, déprime saisonnière, anxiété, douleurs articulaires, arthrose, arthrite, douleurs chroniques, dérèglement hormonal, règles douloureuses, abondantes, ménopause, problème digestif, constipation, diarrhée, allergies, asthme, gestion du poids, insomnie...#}
+{#                                                        </p>#}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <section class=" section tree-container" id="section_33266" >
+                        <div class="sb-bloc-inner container_401916_inner" id="container_401916_inner" style="padding: 30px 10px 60px 10px;"><div class="subcontainers"><div id="container_324805" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " style="padding: 10px 10px 10px 10px;"><div class="element element-title sb-vi-text-center">
+                                        <h2><span class="element-title-inner">Votre cabinet de Naturopathie à Groslay</span></h2>
+                                    </div></div><div id="container_402140" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 10px 10px 10px 10px;"><div id="container_402140_inner" style="padding: 30px 30px 30px 30px;border-top-right-radius: 20px;border-top-left-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;" class="sb-bloc-inner container_402140_inner background-color-before-c-5 border-radius">    <style>
+                                            .container_402140_inner {
+                                                position: relative;
+                                            }
+                                            .container_402140_inner:before {
+                                                content: "";
+                                                position: absolute;
+                                                top: 0;
+                                                bottom: 0;
+                                                left: 0;
+                                                right: 0;
+                                                opacity: 0.1;      border-top-right-radius: 20px;
+                                                border-top-left-radius: 20px;
+                                                border-bottom-right-radius: 20px;
+                                                border-bottom-left-radius: 20px;
+                                            }
+                                        </style>
+                                        <div class="element element-static-container"><div class="tree-container clearfix"><div id="container_324812" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;"><div class="element element-icon icon-xl sb-vi-text-center">
+                                                        <a title="Contact" class="content-link" href="/contact">
+                                                            <div class="element-icon-container  element-icon-square element-icon-size-5x color-c-1" style="border-color: transparent;" >
+                                                                <i class="fa fa-map-marker fa-fw"></i>
+                                                            </div>
+                                                        </a></div></div><div id="container_324818" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " style="padding: 10px 10px 10px 10px;"><div class="element element-title sb-vi-text-center"><h3>
+                                                            <span class="element-title-inner">Accéder au cabinet de Naturopathie</span>
+                                                        </h3></div></div><div id="container_324820" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                    </div>
+                                                </div>
+                                                <div id="container_324829" class=" sb-bloc sb-bloc-level-3 bloc-element-contact  " style="padding: 10px 10px 10px 10px;"><div class="element element-contact contact-md sb-vi-text-center element-contact-vertical"><div class="sb-row media-query"><div class="sb-col element-contact-item sb-col-sm-12">
+                                                                <div class="element-contact-adress">
+
+                                                                    <p class="element-contact-text">
+                                                                        <span>160 Rue des Voisins</span><br/>
+
+                                                                        <span>      95000</span>
+                                                                        <span>            Groslay</span><br/>
+
+
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div></div></div></div></div></div></div><div class="sb-row sb-row-custom subcontainers media-query"><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;"><div id="container_402166" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-absolute-container  " style="height: 500px;"><div id="container_402166_inner" style="margin: 10px 10px 10px 10px;border-top-right-radius: 20px;border-top-left-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;" class="sb-bloc-inner container_402166_inner background-color-before-c-5 border-radius">    <style>
+                                                    .container_402166_inner:before {
+                                                        content: "";
+                                                        position: absolute;
+                                                        top: 0;
+                                                        bottom: 0;
+                                                        left: 0;
+                                                        right: 0;
+                                                        opacity: 0.2;      border-top-right-radius: 20px;
+                                                        border-top-left-radius: 20px;
+                                                        border-bottom-right-radius: 20px;
+                                                        border-bottom-left-radius: 20px;
+                                                    }
+                                                </style>
+                                                <div class="element element-absolute-container"><div class="tree-container"><div id="container_402175" class="sb-bloc-alignment-wrapper  sb-bloc-alignment-h-v sb-bloc-alignment-h-center sb-bloc-alignment-v-middle  "><div class="sb-bloc-alignment-sibling"></div><div class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute bloc-element-static-container" style="width: 100.0%;top: 30.0%;left: 39.2453%;"><div id="container_402175_inner" style="margin: 10px 10px 10px 10px;padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_402175_inner"><div class="element element-static-container"><div class="tree-container clearfix"><div id="container_324851" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;"><div class="element element-icon icon-lg sb-vi-text-center">
+                                                                                    <a title="Contact" class="content-link" href="/contact">
+                                                                                        <div class="element-icon-container  element-icon-square element-icon-size-4x color-c-1" style="border-color: transparent;" >
+                                                                                            <i class="fa fa-phone fa-fw"></i>
+                                                                                        </div>
+                                                                                    </a></div></div><div id="container_324848" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " style="padding: 10px 10px 10px 10px;"><div class="element element-title sb-vi-text-center"><h3><span class="element-title-inner">Prendre rendez-vous avec Fatima BENAZZOUZ</span></h3></div></div><div id="container_324860" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><p style="text-align: justify;"><strong>Fatima BENAZZOUZ</strong>, <strong>naturopathe </strong>à <strong>Groslay</strong>, vous accueille pour des consultations sur rendez-vous</p></div></div>
+                                                                            <div id="container_324870" class=" sb-bloc sb-bloc-level-3 bloc-element-hours  " style="padding: 10px 10px 10px 10px;">
+                                                                                <div class="element element-hours hours-md element-hours-text">
+                                                                                    <div class="element-hours-inner text">
+                                                                                        <p>Du <b>Lundi</b> au <b>Dimanche</b> de <b>9h</b> à <b>19h</b></p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div id="container_324884" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;">
+                                                                                <div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                                    <p>Merci d'appeler le cabinet de <strong>naturopathie</strong> avant tout déplacement :</p></div></div><div id="container_324887" class=" sb-bloc sb-bloc-level-3 bloc-element-contact  " style="padding: 10px 10px 10px 10px;"><div class="element element-contact contact-lg sb-vi-text-center element-contact-vertical"><div class="sb-row media-query">  <div class="sb-col element-contact-item sb-col-sm-12">
+                                                                                            <div class="element-contact-telmob">
+                                                                                                <i class="fa fa-phone fa-fw"></i>
+                                                                                                <p class="element-contact-text">
+                                                                                                    <span class="element-contact-link"></span>06 52 06 93 82
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div></div></div></div></div></div></div></div></div></div></div></div></div><div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;"><div id="container_402162" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-absolute-container  " style="height: 500px;">
+                                            <div id="container_402162_inner" style="margin: 10px 10px 10px 10px;border-top-right-radius: 20px;border-top-left-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;" class="sb-bloc-inner container_402162_inner background-color-before-c-5 border-radius">    <style>
+                                                    .container_402162_inner:before {
+                                                        content: "";
+                                                        position: absolute;
+                                                        top: 0;
+                                                        bottom: 0;
+                                                        left: 0;
+                                                        right: 0;
+                                                        opacity: 0.2;      border-top-right-radius: 20px;
+                                                        border-top-left-radius: 20px;
+                                                        border-bottom-right-radius: 20px;
+                                                        border-bottom-left-radius: 20px;
+                                                    }
+                                                </style>
+                                                <div class="element element-absolute-container"><div class="tree-container"><div id="container_402179" class="sb-bloc-alignment-wrapper  sb-bloc-alignment-h-v sb-bloc-alignment-h-center sb-bloc-alignment-v-middle  "><div class="sb-bloc-alignment-sibling"></div><div class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute bloc-element-static-container" style="width: 100.0%;top: 26.6667%;left: 14.1509%;"><div id="container_402179_inner" style="margin: 10px 10px 10px 10px;padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_402179_inner"><div class="element element-static-container"><div class="tree-container clearfix"><div id="container_324854" class=" sb-bloc sb-bloc-level-3 bloc-element-icon  " style="padding: 10px 10px 10px 10px;"><div class="element element-icon icon-lg sb-vi-text-center">
+                                                                                    <a title="Contact" class="content-link" href="/contact">
+                                                                                        <div class="element-icon-container  element-icon-square element-icon-size-4x color-c-1" style="border-color: transparent;" >
+                                                                                            <i class="fa fa-asterisk fa-fw"></i>
+                                                                                        </div>
+                                                                                    </a></div></div><div id="container_324857" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " style="padding: 10px 10px 10px 10px;"><div class="element element-title sb-vi-text-center"><h3><span class="element-title-inner">A savoir sur votre cabinet de Naturopathie</span></h3></div></div><div id="container_324903" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;"><div class="element element-text displayed_in_1_column" spellcheck="true"><ul>
+                                                                                        <li style="text-align: left;">Consultations <strong>sur rendez-vous</strong> uniquement</li>
+{#                                                                                        <li style="text-align: left;">Consultations <strong>à domicile</strong> possible</li>#}
+{#                                                                                        <li style="text-align: left;">Prise en charge possible dans les<strong> centres d'accueil de seniors</strong></li>#}
+                                                                                        <li style="text-align: left;">Vous pouvez vous réfèrer au différentes Tarifs<strong>
+                                                                                                <a href="/tarifs">ici</a></strong></li>
+                                                                                    </ul></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+                    </section>
+                </div>
             </div>
         </div>
+    </div>
 
-        {% block content %}
-            {% include 'home/_category.html.twig' %}
-        {% endblock %}
-    </header>
-{% endblock %}
 
+
+
+
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="pswp__bg"></div>
+            <div class="pswp__scroll-wrap">
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+                <div class="pswp__ui pswp__ui--hidden">
+                    <div class="pswp__top-bar">
+                        <div class="pswp__counter"></div>
+                        <button class="pswp__button pswp__button--close" title="Fermer (Esc)"></button>
+                        <button class="pswp__button pswp__button--share" title="Partager"></button>
+                        <button class="pswp__button pswp__button--fs" title="Plein écran"></button>
+                        <button class="pswp__button pswp__button--zoom" title="Zoomer"></button>
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div>
+                    </div>
+                    <button class="pswp__button pswp__button--arrow--left" title="Précédent">
+                    </button>
+                    <button class="pswp__button pswp__button--arrow--right" title="Suivant">
+                    </button>
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center" style="text-align: center;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-video-player" class="video-player-background">
+            <div class="video-player-container">
+                <div class="video-player-close">
+                    <button class="video-player-close-btn">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
+                <div id="video-iframe-container"></div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'layout/_footer.html.twig' %}
+    {% endblock %}
+</div>
+</body>
+</html>

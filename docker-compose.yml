@@ -9,7 +9,7 @@ services:
             MYSQL_USER: 'symfony'
             MYSQL_PASSWORD: 'symfony'
         ports:
-            - '3306:3306'
+            - '8080:3306'
         volumes:
             - './database:/var/lib/mysql'
         user: 'symfony'

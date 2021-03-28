@@ -153,7 +153,7 @@
                                     </li>
                                     <li class="menu-tab-container sb-col">
                                         <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="https://www.facebook.com/watch/?v=2015289398714972">
+                                            <a class="menu-tab-element link-text link-text-dark content-link" target="_blank" href="https://www.facebook.com/watch/?v=2015289398714972">
                                                 <span class="link-label" style=''>Media</span>
                                             </a>
                                         </div>
@@ -171,62 +171,45 @@
                                             </a>
                                         </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col">
+                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'contact' ? 'selected' }}">
                                         <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="/contact">
+                                            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('contact') }}">
                                                 <span class="link-label" style=''>Contact</span>
                                             </a>      </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col">
+                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') starts with 'blog_' ? 'selected' }}">
                                         <div class="menu-tab">
-                                            <div class="menu-tab-element element element-folder link-text link-text-dark">
-                                                <span class="link-label" style=''>Blog<i class="fa fa-caret-right fa-fw"></i><i class="fa fa-caret-down fa-fw"></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="menu-level-container menu-level-1">
-                                            <ul class="menu-tabs sb-row media-query">
-                                                <li class="menu-tab-container sb-col">
-                                                    <div class="menu-tab">
-                                                        <a class="menu-tab-element link-text link-text-dark content-link" href="/blog">
-                                                            <span class="link-label" style=''>Actualité Cabinet</span>
-                                                        </a>      </div>
-                                                </li>
-                                                <li class="menu-tab-container sb-col">
-                                                    <div class="menu-tab">
-                                                        <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/alimentation">
-                                                            <span class="link-label" style=''>Alimentation</span>
-                                                        </a>      </div>
-                                                </li>
-                                                <li class="menu-tab-container sb-col">
-                                                    <div class="menu-tab">
-                                                        <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/recettes-de-cuisine">
-                                                            <span class="link-label" style=''>Recettes</span>
-                                                        </a>      </div>
-                                                </li>
-                                                <li class="menu-tab-container sb-col">
-                                                    <div class="menu-tab">
-                                                        <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/outils">
-                                                            <span class="link-label" style=''>Outils</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li class="menu-tab-container sb-col">
-                                                    <div class="menu-tab">
-                                                        <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/huiles-essentielles">
-                                                            <span class="link-label" style=''>Huiles essentielles</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="menu-tab-container sb-col   ">
-                                        <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="">
-                                                <span class="link-label" style=''>Lien</span>
+                                            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('blog_index') }}">
+                                                <span class="link-label" style=''>Blog</span>
                                             </a>
                                         </div>
                                     </li>
+                                    {% if app.user and app.user.admin %}
+                                        <li class="menu-tab-container sb-col ">
+                                            <div class="menu-tab">
+                                                <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('admin') }}">
+                                                    <span class="link-label" style=''>Admin</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                    {% if not app.user %}
+                                        <li class="menu-tab-container sb-col ">
+                                            <div class="menu-tab">
+                                                <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('app_login') }}">
+                                                    <span class="link-label" style=''>Login</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    {% else %}
+                                        <li class="menu-tab-container sb-col ">
+                                            <div class="menu-tab">
+                                                <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('app_logout') }}">
+                                                    <span class="link-label" style=''>Logout</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>

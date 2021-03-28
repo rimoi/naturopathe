@@ -1,18 +1,37 @@
-{% extends 'admin/layout.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Edit Article{% endblock %}
 
-{% block body_content %}
-    <h1>Edit Article</h1>
+{% block body %}
+    <section class="panel important">
+        {% block _title %}
+            <h2>Modifier {{ type|capitalize }}</h2>
+        {% endblock %}
 
-    {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ form_start(form) }}
+        <div class="twothirds">
+            {{ form_row(form.title, {'attr': {'placeholder': 'Nom'}}) }}
 
-    <div class="">
-        <div>
-            {{ include('article/_delete_form.html.twig') }}
+            {{ form_row(form.content, {'attr': {'rows': 8, 'cols': 40}}) }}
         </div>
-        <div>
-            <a class="btn btn-default" href="{{ path('article_index') }}">< Retour à la liste</a>
+        <div class="onethird d-flex">
+            {{ form_row(form.image) }}
+
+            <div class="mt-auto">
+                <input type="submit" value="Soumettre" />
+            </div>
         </div>
-    </div>
+        {{ form_end(form) }}
+    </section>
+
+    {% if article.id %}
+        <div>
+            <div>
+                {{ include('article/_delete_form.html.twig') }}
+            </div>
+            <div>
+                <a class="btn btn-default" href="{{ path('article_index_'~type) }}">< Retour à la liste</a>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

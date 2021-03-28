@@ -1,5 +1,15 @@
-{% extends 'admin/layout.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Admin{% endblock %}
 
-{% block body_content %}{% endblock %}
+{% block body %}
+    <section class="panel important">
+        <h2>Bienvenue sur votre tableau de bord</h2>
+        <ul>
+            Vous pouvez réaliser ici différentes choses:
+            <li>Gérer la liste de vos pratiques</li>
+            <li>Gérer votre blog</li>
+            <li>D'autres à venir ...</li>
+        </ul>
+    </section>
+{% endblock %}

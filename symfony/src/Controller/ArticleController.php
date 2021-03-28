@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Enum\ArticleEnum;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 
@@ -17,12 +18,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends BaseController
 {
     /**
-     * @Route("/", name="index", methods={"GET"})
+     * @Route("/type/blog", name="index_blog", methods={"GET"})
+     * @Route("/type/technique", name="index_technique", methods={"GET"})
      */
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(Request $request, ArticleRepository $articleRepository): Response
     {
-        return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
+        if( $request->get('_route') === 'article_index_technique') {
+            return $this->render('article/list_technique.html.twig', [
+                'articles' => $articleRepository->findBy(['type' => ArticleEnum::TECHNIQUE])
+            ]);
+        }
+
+        return $this->render('article/list_blog.html.twig', [
+            'articles' => $articleRepository->findBy(['type' => ArticleEnum::BLOG])
         ]);
     }
 
@@ -31,21 +39,29 @@ class ArticleController extends BaseController
      */
     public function new(Request $request): Response
     {
+        if (!$type = $request->get('type')) {
+            throw $this->createNotFoundException('Type l\'article inconnue !');
+        }
+
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $article->setType($type);
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute('article_index');
+            $this->flashSuccess('Article créer avec succès !');
+
+            return $this->redirectToRoute('article_index_'.$type);
         }
 
         return $this->render('article/new.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
+            'type' => $type
         ]);
     }
 

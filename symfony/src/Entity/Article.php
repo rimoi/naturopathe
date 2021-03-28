@@ -28,7 +28,7 @@ class Article
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $titleTranslator;
 
@@ -314,12 +314,12 @@ class Article
         return $this;
     }
 
-    public function getTitleTranslator()
+    public function getTitleTranslator(): ?string
     {
         return $this->titleTranslator;
     }
 
-    public function setTitleTranslator($titleTranslator): self
+    public function setTitleTranslator(?string $titleTranslator): self
     {
         $this->titleTranslator = $titleTranslator;
 

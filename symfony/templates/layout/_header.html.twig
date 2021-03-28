@@ -115,29 +115,48 @@
                                                 <span class="link-label" style=''>Bienvenue</span>
                                             </a>      </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'who_are_we' ? 'selected' }} ">
+                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'who_are_we' ? 'selected' }}">
                                         <div class="menu-tab">
                                             <a class="menu-tab-element link-text link-text-dark content-link" href="/qui-suis-je">
                                                 <span class="link-label" style=''>Qui suis-je ?</span>
                                             </a>      </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col   ">
+                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'show_article' ? 'selected' }}">
                                         <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="/la-naturopathie">
-                                                <span class="link-label" style=''>La Naturopathie</span>
-                                            </a>      </div>
+                                            <div class="menu-tab-element element element-folder link-text link-text-dark">
+                                                <span class="link-label">
+                                                    Mes pratiques
+                                                    <i class="fa fa-caret-right fa-fw"></i>
+                                                    <i class="fa fa-caret-down fa-fw"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="menu-level-container menu-level-1">
+                                            <ul class="menu-tabs sb-row media-query">
+                                               {{ render(controller('App\\Controller\\PratiqueController::index', {'id': article.id|default(null)})) }}
+                                            </ul>
+                                        </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col   ">
+                                    <li class="menu-tab-container sb-col  {{ app.request.attributes.get('_route') == 'prestation' ? 'selected' }}">
                                         <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="/quantum2">
-                                                <span class="link-label" style=''>Quantum</span>
-                                            </a>      </div>
+                                            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('prestation') }}">
+                                                <span class="link-label">Mes Prestations</span>
+                                            </a>
+                                        </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col   ">
+                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'tarif' ? 'selected' }}">
                                         <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="/la-consultation">
-                                                <span class="link-label" style=''>La consultation</span>
-                                            </a>      </div>
+                                            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('tarif') }}">
+                                                <span class="link-label" style=''>Tarifs</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="menu-tab-container sb-col">
+                                        <div class="menu-tab">
+                                            <a class="menu-tab-element link-text link-text-dark content-link" href="https://www.facebook.com/watch/?v=2015289398714972">
+                                                <span class="link-label" style=''>Media</span>
+                                            </a>
+                                        </div>
                                     </li>
                                     <li class="menu-tab-container sb-col   ">
                                         <div class="menu-tab">
@@ -151,13 +170,13 @@
                                                 <span class="link-label" style=''>Livre d&#39;or</span>
                                             </a>      </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col   ">
+                                    <li class="menu-tab-container sb-col">
                                         <div class="menu-tab">
                                             <a class="menu-tab-element link-text link-text-dark content-link" href="/contact">
                                                 <span class="link-label" style=''>Contact</span>
                                             </a>      </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col   ">
+                                    <li class="menu-tab-container sb-col">
                                         <div class="menu-tab">
                                             <div class="menu-tab-element element element-folder link-text link-text-dark">
                                                 <span class="link-label" style=''>Blog<i class="fa fa-caret-right fa-fw"></i><i class="fa fa-caret-down fa-fw"></i></span>
@@ -165,35 +184,37 @@
                                         </div>
                                         <div class="menu-level-container menu-level-1">
                                             <ul class="menu-tabs sb-row media-query">
-                                                <li class="menu-tab-container sb-col   ">
+                                                <li class="menu-tab-container sb-col">
                                                     <div class="menu-tab">
                                                         <a class="menu-tab-element link-text link-text-dark content-link" href="/blog">
                                                             <span class="link-label" style=''>Actualité Cabinet</span>
                                                         </a>      </div>
                                                 </li>
-                                                <li class="menu-tab-container sb-col   ">
+                                                <li class="menu-tab-container sb-col">
                                                     <div class="menu-tab">
                                                         <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/alimentation">
                                                             <span class="link-label" style=''>Alimentation</span>
                                                         </a>      </div>
                                                 </li>
-                                                <li class="menu-tab-container sb-col   ">
+                                                <li class="menu-tab-container sb-col">
                                                     <div class="menu-tab">
                                                         <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/recettes-de-cuisine">
                                                             <span class="link-label" style=''>Recettes</span>
                                                         </a>      </div>
                                                 </li>
-                                                <li class="menu-tab-container sb-col   ">
+                                                <li class="menu-tab-container sb-col">
                                                     <div class="menu-tab">
                                                         <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/outils">
                                                             <span class="link-label" style=''>Outils</span>
-                                                        </a>      </div>
+                                                        </a>
+                                                    </div>
                                                 </li>
-                                                <li class="menu-tab-container sb-col   ">
+                                                <li class="menu-tab-container sb-col">
                                                     <div class="menu-tab">
                                                         <a class="menu-tab-element link-text link-text-dark content-link" href="/blog/categories/huiles-essentielles">
                                                             <span class="link-label" style=''>Huiles essentielles</span>
-                                                        </a>      </div>
+                                                        </a>
+                                                    </div>
                                                 </li>
                                             </ul>
                                         </div>
@@ -202,11 +223,17 @@
                                         <div class="menu-tab">
                                             <a class="menu-tab-element link-text link-text-dark content-link" href="">
                                                 <span class="link-label" style=''>Lien</span>
-                                            </a>      </div>
+                                            </a>
+                                        </div>
                                     </li>
                                 </ul>
-                            </div></div></div></div>
-            </div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

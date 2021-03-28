@@ -2,4 +2,6 @@
 
 {% block title %}Nouvelle {{ type|capitalize }}{% endblock %}
 
-{% block _title block('title') %}
+{% block _title %}
+    <h2>{{ block('title') }}</h2>
+{% endblock %}

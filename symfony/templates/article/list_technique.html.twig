@@ -10,7 +10,7 @@
         <h2>Liste des pratiques</h2>
 
         <div class="text-right">
-            <a class="btn-primary btn-sm text-right" href="{{ path('article_new', { type: constant('App\\Enum\\ArticleEnum::BLOG')}) }}">
+            <a class="btn-primary btn-sm text-right" href="{{ path('article_new', { type: constant('App\\Enum\\ArticleEnum::TECHNIQUE')}) }}">
                 <i class="fas fa-plus"></i>
                 Nouvelle pratique
             </a>
@@ -30,7 +30,7 @@
 {#                        <a href="{{ path('article_show', {'id': article.id}) }}">Afficher</a>#}
 {#                    </td>#}
                     <td>
-                        <a href="{{ path('article_edit', {'id': article.id , type: constant('App\\Enum\\ArticleEnum::BLOG')}) }}">Modifier</a>
+                        <a href="{{ path('article_edit', {'id': article.id , type: constant('App\\Enum\\ArticleEnum::TECHNIQUE')}) }}">Modifier</a>
                     </td>
                 </tr>
             {% else %}

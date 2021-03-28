@@ -25,12 +25,12 @@ class ArticleController extends BaseController
     {
         if( $request->get('_route') === 'article_index_technique') {
             return $this->render('article/list_technique.html.twig', [
-                'articles' => $articleRepository->findBy(['type' => ArticleEnum::TECHNIQUE])
+                'articles' => $articleRepository->findBy(['type' => ArticleEnum::TECHNIQUE, 'archived' => false])
             ]);
         }
 
         return $this->render('article/list_blog.html.twig', [
-            'articles' => $articleRepository->findBy(['type' => ArticleEnum::BLOG])
+            'articles' => $articleRepository->findBy(['type' => ArticleEnum::BLOG, 'archived' => false])
         ]);
     }
 
@@ -80,18 +80,26 @@ class ArticleController extends BaseController
      */
     public function edit(Request $request, Article $article): Response
     {
+        if (!$type = $request->get('type')) {
+            throw $this->createNotFoundException('Type l\'article inconnue !');
+        }
+
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $article->setType($type);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('article_index');
+            $this->flashSuccess('Article modifié avec succès');
+
+            return $this->redirectToRoute('article_index_'.$type);
         }
 
         return $this->render('article/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
+            'type' => $type
         ]);
     }
 
@@ -100,12 +108,18 @@ class ArticleController extends BaseController
      */
     public function delete(Request $request, Article $article): Response
     {
+        if (!$type = $request->get('type')) {
+            throw $this->createNotFoundException('Type de l\'article inconnue !');
+        }
+
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $article->setArchived(1);
             $entityManager->flush();
+            $this->flashSuccess('Article supprimé avec succès !');
         }
 
-        return $this->redirectToRoute('article_index');
+
+        return $this->redirectToRoute('article_index_'.$type);
     }
 }

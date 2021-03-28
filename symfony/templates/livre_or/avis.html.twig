@@ -10,15 +10,19 @@
         }
     }
 
-    .fas.fa-star{
-        color: yellow;
-        -webkit-text-stroke-width: 2px;
-        -webkit-text-stroke-color: yellow;
+    .fa.fa-star {
+        color: #7f4b61;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #7f4b61;
     }
 
-    .fas.fa-star{
+    .fa.fa-star {
         -webkit-text-stroke-color: black;
-        color:yellow;
+        color:#7f4b61;
+    }
+    .fa.fa-star.white {
+        -webkit-text-stroke-color: black;
+        color:white !important;
     }
 
     .ratingStars{
@@ -104,8 +108,7 @@
         max-width: 1200px;
     }
     .item {
-        float: left;
-        width: 60%;
+        width: 100%;
     }
     .mb-50 {
         margin-bottom: 3rem;
@@ -125,14 +128,23 @@
         <div class="col-lg-4 col-xl-4">
             <div class="item mb-50">
                 <h2 class="author">
-                    <i class="far fa-user-circle">&nbsp;</i>
+                    <i class="fa fa-user-circle">&nbsp;</i>
                     {{ comment.nickname }}
                 </h2>
                 <i class="fa fa-quote-left"></i>
                 <div class="quote">
+                    <div style="text-align: right; margin-top: -35px;">
+                        <div class="rating">
+                            <i class="fa fa-star {{ comment.rate >= 1 ? '' : 'white' }}">&nbsp;</i>
+                            <i class="fa fa-star {{ comment.rate >= 2 ? '' : 'white' }}">&nbsp;</i>
+                            <i class="fa fa-star {{ comment.rate >= 3 ? ''  : 'white' }}">&nbsp;</i>
+                            <i class="fa fa-star {{ comment.rate >= 4 ? ''  : 'white' }}">&nbsp;</i>
+                            <i class="fa fa-star {{ comment.rate >= 5 ? '' : 'white' }}">&nbsp;</i>
+                        </div>
+                    </div>
                     {{ comment.content }}
                 </div>
-                <div class="panel-footer">{{ comment.createAt|date('t, F') }}</div>
+                <div class="panel-footer">{{ comment.createAt|date('d/m') }}</div>
             </div>
         </div>
     {% endfor %}

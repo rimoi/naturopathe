@@ -8,6 +8,7 @@
 
         {{ form_start(form) }}
         <div class="twothirds">
+            {{ form_row(form.rate, {'label': 'Votre note'}) }}
             {{ form_row(form.nickname, {'attr': {'placeholder': 'Nom'}}) }}
             {{ form_row(form.email, {'attr': {'placeholder': 'Email'}}) }}
             {{ form_row(form.enabled, {'lable': 'Publiée'}) }}

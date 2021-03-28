@@ -40,24 +40,24 @@ class LivreOrController extends BaseController
         }
 
         return $this->render('livre_or/index.html.twig', [
-            'livre_ors' => $livreOrRepository->findBy(['enabled' => true]),
+            'livre_ors' => $livreOrRepository->findBy(['enabled' => true, 'archived' => false], ['id' => 'DESC']),
             'form' => $form->createView(),
             'livre_or' => $livreOr
         ]);
     }
 
     /**
-     * @Route("/admin", name="livre_or_admin", methods={"GET"})
+     * @Route("/admin/list", name="livre_or_admin", methods={"GET"})
      */
     public function listAdmin(LivreOrRepository $livreOrRepository): Response
     {
         return $this->render('livre_or/admin.html.twig', [
-            'livre_ors' => $livreOrRepository->findBy([], ['id' => 'DESC']),
+            'livre_ors' => $livreOrRepository->findBy(['archived' => false], ['id' => 'DESC']),
         ]);
     }
 
     /**
-     * @Route("/updateOrDelete", name="livre_or_update", methods={"GET", "POST"}, options={"expose"=true})
+     * @Route("/admin/updateOrDelete", name="livre_or_update", methods={"GET", "POST"}, options={"expose"=true})
      */
     public function update(Request $request, LivreOrRepository $livreOrRepository): JsonResponse
     {
@@ -79,7 +79,7 @@ class LivreOrController extends BaseController
     }
 
     /**
-     * @Route("/new", name="livre_or_new", methods={"GET","POST"})
+     * @Route("/admin/new", name="livre_or_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -103,7 +103,7 @@ class LivreOrController extends BaseController
     }
 
     /**
-     * @Route("/{id}/edit", name="livre_or_edit", methods={"GET","POST"})
+     * @Route("/admin/{id}/edit", name="livre_or_edit", methods={"GET","POST"})
      */
     public function edit(LivreOr $livreOr, Request $request): Response
     {
@@ -126,7 +126,7 @@ class LivreOrController extends BaseController
     }
 
     /**
-     * @Route("/{id}", name="livre_or_show", methods={"GET"})
+     * @Route("/admin/{id}", name="livre_or_show", methods={"GET"})
      */
     public function show(LivreOr $livreOr): Response
     {
@@ -136,7 +136,7 @@ class LivreOrController extends BaseController
     }
 
     /**
-     * @Route("/{id}", name="livre_or_delete", methods={"DELETE"})
+     * @Route("/admin/{id}", name="livre_or_delete", methods={"DELETE"})
      */
     public function delete(Request $request, LivreOr $livreOr): Response
     {

@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\LivreOr;
+use App\Enum\CommentEnum;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -19,7 +21,9 @@ class LivreOrType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('nickname', TextType::class)
-//            ->add('rate', IntegerType::class)
+            ->add('rate', ChoiceType::class, [
+                'choices' => array_flip(CommentEnum::RATE)
+            ])
             ->add('content', TextareaType::class)
         ;
 

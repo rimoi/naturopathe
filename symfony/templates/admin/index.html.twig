@@ -3,6 +3,12 @@
 {% block title %}Admin{% endblock %}
 
 {% block body %}
+    {% if comments|length %}
+        <section>
+            <div class="feedback success" style="margin-top: 15px">Vous avez {{ comments|length }} nouveaux commentaire à valider</div>
+        </section>
+    {% endif %}
+
     <section class="panel important">
         <h2>Bienvenue sur votre tableau de bord</h2>
         <ul>
@@ -13,11 +19,7 @@
         </ul>
     </section>
 
-    {% if comments|length %}
-        <section style="padding: 15px;">
-            <div class="feedback success">Vous avez {{ comments|length }} nouveaux commentaire à valider</div>
-        </section>
-    {% endif %}
+
 
 
     {% if comments|length %}

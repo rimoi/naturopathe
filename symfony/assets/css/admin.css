@@ -348,7 +348,6 @@ label.error {
     border: solid 1px turquoise;
 }
 .feedback.success:before {
-    content: "";
     font-family: fontawesome;
     color: #1aa093;
     margin-left: -1.5em;

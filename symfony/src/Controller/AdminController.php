@@ -22,6 +22,6 @@ class AdminController extends BaseController
              return $this->redirectToRoute('admin', ['_locale' => 'fr']);
         }
 
-        return $this->render('admin/index.html.twig', ['comments' => $livreOrRepository->findBy(['enabled' => false])]);
+        return $this->render('admin/index.html.twig', ['comments' => $livreOrRepository->findBy(['enabled' => false], ['id' => 'DESC'])]);
     }
 }

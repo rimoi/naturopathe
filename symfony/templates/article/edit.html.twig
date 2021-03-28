@@ -13,19 +13,19 @@
             {{ form_row(form.title, {'attr': {'placeholder': 'Nom'}}) }}
 
             {{ form_row(form.content, {'attr': {'rows': 8, 'cols': 40}}) }}
-        </div>
-        <div class="onethird d-flex">
+
             {{ form_row(form.image) }}
             {% if article.image %}
                 <img src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="" width="290" />
             {% endif %}
-
+        </div>
+        <div class="onethird d-flex">
             <div class="mt-auto">
                 <input type="submit" value="Soumettre" />
             </div>
         </div>
         <div>
-            <a class="btn" href="{{ path('article_index_'~type) }}">< Retour à la liste</a>
+            <a class="btn" href="{{ path('article_index_'~type) }}">Annuler</a>
         </div>
         {{ form_end(form) }}
     </section>

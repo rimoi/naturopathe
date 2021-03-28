@@ -1,0 +1,139 @@
+<style>
+    @media only screen and (max-width: 991px) {
+        .ratingStars{
+            text-align: center !important;
+            margin-top: 0px !important;
+        }
+
+        .ratingNumber{
+            text-align: center !important;
+        }
+    }
+
+    .fas.fa-star{
+        color: yellow;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: yellow;
+    }
+
+    .fas.fa-star{
+        -webkit-text-stroke-color: black;
+        color:yellow;
+    }
+
+    .ratingStars{
+        text-align: left;
+        margin-top: 50px;
+    }
+
+    .ratingNumber{
+        font-size: 8em;
+        text-align: center;
+        font-weight: 900;
+        text-align: right;
+    }
+
+    .rating{
+        font-size:30px;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    .fa-quote-left{
+        margin-left: 10px;
+        font-size: 20px;
+        color: #5d8f66;
+    }
+
+    .item {
+        background: #fff;
+        border: 2px solid #333;
+        border-radius: 5px;
+        border-color: rgba(0, 0, 0, 0.5);
+        margin: .5rem;
+        padding-bottom: 1rem;
+        box-shadow: 5px 5px 5px #888888;
+    }
+
+    .item:hover{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.04);
+        transition: .4s;
+    }
+
+    .author {
+        text-align: center;
+        text-transform: uppercase;
+        background: #5d8f66;
+        color: #fff;
+        margin-top: 0;
+        padding: 1rem 0;
+        border-bottom: 2px solid #333;
+        border-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .mark {
+        position: absolute;
+        color: #60a2b8;
+        font-size: 2rem;
+        left: 1rem;
+        padding: 0;
+        line-height: 1.25em;
+    }
+
+    .quote {
+        padding-right: 1rem;
+        padding-left: 4rem;
+    }
+
+    .panel-footer{
+        text-align: right;
+        margin-right: 10px;
+        font-family: sans-serif;
+        font-style: italic;
+    }
+    .row {
+        width: 100%;
+        max-width: 1200px;
+    }
+    .item {
+        float: left;
+        width: 60%;
+    }
+    .mb-50 {
+        margin-bottom: 3rem;
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-6 col-sm-12 ratingStars">
+        <h2 class="text--center"><strong>Les avis des autres</strong><br />
+            <i class="fa fa-angle-double-down fa-2x" style="color: #7f4b61">&nbsp;</i>
+        </h2>
+    </div>
+</div>
+
+<div class="row">
+    {% for comment in livre_ors %}
+        <div class="col-lg-4 col-xl-4">
+            <div class="item mb-50">
+                <h2 class="author">
+                    <i class="far fa-user-circle">&nbsp;</i>
+                    {{ comment.nickname }}
+                </h2>
+                <i class="fa fa-quote-left"></i>
+                <div class="quote">
+                    {{ comment.content }}
+                </div>
+                <div class="panel-footer">{{ comment.createAt|date('t, F') }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

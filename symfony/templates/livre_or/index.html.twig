@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LivreOr index{% endblock %}
+
+{% block body %}
+    <div class="container-light sb-row sb-row-table sb-row-custom media-query" id="center">
+        <div class="sb-col sb-col-sm" id="center_inner_wrapper">
+            <div class="" id="h1">
+                <div class="sb-bloc ">
+                    <div class="sb-bloc-inner">
+                        <h1>Votre avis m'intérèsse</h1>
+                    </div>
+                </div>
+            </div>
+            <div id="center_inner">
+                <div class="sections-container">
+                    <section class=" section tree-container" id="section_26846">
+                        <div class="sb-bloc-inner container_325137_inner" id="container_325137_inner" style="padding: 10px 10px 60px 10px;">
+                            <div class="subcontainers">
+                                <div id="container_404523" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-spacer  hide-on-mobile " style="height: 40px;">
+                                    <div id="container_404523_inner" style="margin: 10px 10px 10px 10px;" class="sb-bloc-inner container_404523_inner">
+                                        <div class="element element-spacer"></div>
+                                    </div>
+                                </div>
+                                <div id="container_325401" class=" sb-bloc sb-bloc-level-3 bloc-element-review-form  " style="padding: 10px 10px 10px 10px;">
+                                    <div id="container_325401_inner" style="" class="sb-bloc-inner container_325401_inner">
+                                        <style>
+                                            .container_325401_inner {
+                                                position: relative;
+                                            }
+
+                                            .container_325401_inner {
+                                                width: 100% !important;
+                                                max-width: 800px !important;
+                                                margin-right: auto !important;
+                                                margin-left: auto !important;
+                                            }
+                                        </style>
+                                        <div id="element-review-form-348" class="element element-review-form" data-id="348" data-loading-text="Envoi...">
+                                            <div style="display: none;">
+                                                <div class="loading-container"><i class="fa fa-pulse fa-spinner fa-4x"></i>
+                                                    <p class="loading-text"></p>
+                                                </div>
+                                            </div>
+
+                                            {{ form_start(form, {'attr': {'class': 'js-submit'}}) }}
+{#                                            <form class="" id="new_content_review" action="{{ path('livre_or_index') }}" accept-charset="UTF-8" method="post">#}
+                                                <div class="sb-row media-query with-padding">
+                                                    <div class="sb-col sb-col-xs-6">
+                                                        <div class="sb-vi-form-group">
+                                                            {{ form_widget(form.email, {'attr': {'data-autofocus': 'true', 'placeholder': 'Email', 'class': 'sb-vi-form-input'}}) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="sb-col sb-col-xs-6">
+                                                        <div class="sb-vi-form-group">
+                                                            {{ form_widget(form.nickname, {'attr': {'placeholder': 'Nom/Pseudo', 'class': 'sb-vi-form-input'}}) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sb-vi-form-group">
+                                                    {{ form_widget(form.content, {'attr': {'placeholder': 'Avis', 'class': 'sb-vi-form-input'}}) }}
+                                                </div>
+                                                <div class="element-link">
+                                                    <button type="submit" class="sb-vi-btn skin_1 pull-center">
+                                                        <span>Soumettre</span>
+                                                    </button>
+                                                </div>
+                                                {{ form_end(form) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="container_404510" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-spacer  hide-on-mobile " style="height: 30px;">
+                                    <div id="container_404510_inner" style="margin: 10px 10px 10px 10px;" class="sb-bloc-inner container_404510_inner">
+                                        <div class="element element-spacer"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+            {% if livre_ors|length %}
+                {% include 'livre_or/avis.html.twig' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function (){
+            $('.js-submit').on('submit', function (e){
+                e.preventDefault();
+
+                //get the action-url of the form
+                let actionurl = e.currentTarget.action;
+
+                //do your own request an handle the results
+                $.ajax({
+                    url: actionurl,
+                    type: 'POST',
+                    data: $(".js-submit").serialize(),
+                }).done(function (data) {
+                    console.log(data);
+                    debugger
+                });
+                // e.stopPropagation();
+            });
+        });
+
+    </script>
+{% endblock %}
+

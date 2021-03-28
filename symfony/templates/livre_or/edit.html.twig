@@ -1,0 +1,33 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau commentaire{% endblock %}
+
+{% block body %}
+    <section class="panel important">
+        <h2>Modifier le commentaire de {{ livre_or.nickname }}</h2>
+
+        {{ form_start(form) }}
+        <div class="twothirds">
+            {{ form_row(form.nickname, {'attr': {'placeholder': 'Nom'}}) }}
+            {{ form_row(form.email, {'attr': {'placeholder': 'Email'}}) }}
+            {{ form_row(form.enabled, {'lable': 'Publiée'}) }}
+
+            {{ form_row(form.content, {'attr': {'rows': 8, 'cols': 40}}) }}
+        </div>
+        <div class="onethird d-flex">
+            <div class="mt-auto">
+                <input type="submit" value="Modifier" />
+            </div>
+        </div>
+        <div>
+            <a class="btn-cs-danger" href="{{ path('livre_or_admin') }}">Annuler</a>
+        </div>
+        {{ form_end(form) }}
+    </section>
+
+    {% if livre_or.id %}
+        <div class="text-right">
+            {{ include('livre_or/_delete_form.html.twig') }}
+        </div>
+    {% endif %}
+{% endblock %}

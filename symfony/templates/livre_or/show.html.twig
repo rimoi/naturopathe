@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LivreOr{% endblock %}
+
+{% block body %}
+    <h1>LivreOr</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ livre_or.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ livre_or.email }}</td>
+            </tr>
+            <tr>
+                <th>Nickname</th>
+                <td>{{ livre_or.nickname }}</td>
+            </tr>
+            <tr>
+                <th>CreateAt</th>
+                <td>{{ livre_or.createAt ? livre_or.createAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ livre_or.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('livre_or_index') }}">back to list</a>
+
+    <a href="{{ path('livre_or_edit', {'id': livre_or.id}) }}">edit</a>
+
+    {{ include('livre_or/_delete_form.html.twig') }}
+{% endblock %}

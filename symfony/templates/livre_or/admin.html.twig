@@ -1,0 +1,38 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Commentaires{% endblock %}
+
+{% block body %}
+    <section class="panel important">
+        <h2>Liste des commentaires</h2>
+
+        <div class="text-right">
+            <a class="btn-primary btn-sm" href="{{ path('livre_or_new') }}">
+                <i class="fas fa-plus"></i>
+                Nouvelle Commentaire
+            </a>
+        </div>
+
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            {% for comment in livre_ors %}
+                <tr>
+                    <td>{{ comment.nickname }}</td>
+                    <td>{{ comment.email }}</td>
+                    <td>
+                        {#                        <a href="{{ path('user_show', {'id': user.id}) }}">Voir</a>#}
+                        <a href="{{ path('livre_or_show', {'id': comment.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">Pas de commenataire trouvé !</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+{% endblock %}

@@ -224,11 +224,12 @@ form legend {
     display: block;
     margin: 1em 0 0.5em;
 }
-form input[type=submit] {
+input[type=submit],
+.btn-cs {
     background: turquoise;
     border: none;
     border-bottom: solid 4px #21ccbb;
-    padding: 0.7em 3em;
+    padding: 0.5em .3em;
     margin: 1em 0;
     color: white;
     text-shadow: 0 -1px 0 #21ccbb;
@@ -241,14 +242,50 @@ form input[type=submit] {
     -ms-border-radius: 0.5em;
     border-radius: 0.5em;
 }
-form input[type=submit]:hover {
+input[type=submit]:hover,
+.btn-cs:hover {
     background: khaki;
     border: none;
     border-bottom: solid 4px #eadc5f;
-    padding: 0.7em 3em;
+    padding: 0.5em .3em;
     margin: 1em 0;
     color: white;
     text-shadow: 0 -1px 0 #eadc5f;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: inline-block;
+    width: auto;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    border-radius: 0.5em;
+}
+
+.btn-cs-danger {
+    background: #e04055;
+    border: none;
+    border-bottom: solid 4px #e04055;
+    padding: 0.5em .3em;
+    margin: 1em 0;
+    color: white;
+    text-shadow: 0 -1px 0 #e04055;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: inline-block;
+    width: auto;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    border-radius: 0.5em;
+}
+.btn-cs-danger:hover {
+    background: #4c4827;
+    border: none;
+    border-bottom: solid 4px #4c4827;
+    padding: 0.5em .3em;
+    margin: 1em 0;
+    color: white;
+    text-shadow: 0 -1px 0 #4c4827;
     font-size: 1.1em;
     font-weight: bold;
     display: inline-block;

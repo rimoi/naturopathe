@@ -1,11 +1,7 @@
-{% extends 'admin/layout.html.twig' %}
+{% extends 'article/edit.html.twig' %}
 
-{% block title %}Nouvelle Annonce{% endblock %}
+{% block title %}Nouvelle {{ type|capitalize }}{% endblock %}
 
-{% block body_content %}
-    <h1>Nouvelle Annonce</h1>
-
-    {{ include('article/_form.html.twig') }}
-
-    <a href="{{ path('article_index') }}" class="btn btn-secondary">Retour à la liste</a>
+{% block _title %}
+    <h2>{{ block('title') }}</h2>
 {% endblock %}

@@ -1,69 +1,108 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/home.html.twig' %}
 
-{% block title %}{{ app.request.locale == 'fr' ? article.title : article.titleTranslator }}{% endblock %}
+{% block title %}Pratique {{ article.title }}{% endblock %}
 
 {% block body %}
-    <div class="m-4">
-        <a href="" class="btn btn-secondary mr-2">
-            {{ 'website.view.annonce.action.back'|trans|raw }}
-        </a>
-    </div>
-    <div class="container bg-light p-5">
-        <div class="row js-block-article">
-            <div class="col-sm-8">
-                <div class="text-left">
-                    {% if article.image %}
-                        <img src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="" class="w-75">
-                    {% endif %}
-                </div>
-                <h1 class="my-3">
-                    {{ block('title')|capitalize }}
-                </h1>
-                <div class="text-muted small">
-                    <span>{{ article.createdAt|format_datetime(null, 'short') }}</span>
-                </div>
-                <hr>
-                {% if article.content %}
-                    <div>
-                        <h4 class="h3">{{ 'website.view.annonce.description'|trans }}</h4>
-                        <p>{{ article.content|raw }}</p>
+    <div class="container-light sb-row sb-row-table sb-row-custom media-query" id="center">
+        <div class="sb-col sb-col-sm" id="center_inner_wrapper">
+            <div class="" id="h1">
+                <div class="sb-bloc ">
+                    <div class="sb-bloc-inner">
+                        <h1>{{ article.title }}</h1>
                     </div>
-                    <hr>
-                {% endif %}
-                <div>
-                    <span class="">{{ 'website.view.annonce.works'|trans }} : </span>
-                    {% for category in article.categories %}
-                        <span class="badge badge-danger">{{ app.request.locale == 'fr' ? category.name : location.nameTranslator }}</span>
-                    {% endfor %}
-                </div>
-                <hr>
-                <div>
-                    <span class="">{{ 'website.view.annonce.location'|trans }} : </span>
-                    {% for location in article.communes %}
-                        <span class="badge badge-danger">{{ app.request.locale == 'fr' ? location.name : location.nameTranslator }}</span>
-                    {% endfor %}
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="card text-white bg-secondary js-show-contact">
-                    <div class="card-header">{{ 'website.view.annonce.contact'|trans }}</div>
-                    <div class="card-body">
-                        <div class="text-center">
-                            <button type="button" class="js-number btn btn-danger btn-sm">{{ 'website.view.annonce.phone.show'|trans }}</button>
-                        </div>
-                        <div class="d-none js-show-phone">
-                            <div>
-                                <small>{{ 'website.view.annonce.phone.num1'|trans }} &nbsp; : </small>
-                                <small class="font-weight-bold badge badge-danger">{{ article.firstPhone|trim }}</small>
-                            </div>
-                            {% if article.lastPhone %}
-                                <div>
-                                    <small>{{ 'website.view.annonce.phone.num2'|trans }} : </small>
-                                    <small class="font-weight-bold badge badge-danger">{{ article.lastPhone|trim }}</small>
+            <div class="" id="center_inner">
+                <div class="sections-container">
+                    <section class=" section tree-container" id="section_26840">
+                        <div class="sb-bloc-inner container_325117_inner" id="container_325117_inner" style="padding: 10px 10px 60px 10px;">
+                            <div class="subcontainers">
+                                <div class="sb-row sb-row-custom subcontainers media-query">
+                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 25.0%;">
+                                        <div id="container_337717" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 10px 10px 10px 10px;">
+                                            <div id="container_337717_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_337717_inner">
+                                                <div class="element element-static-container">
+                                                    <div class="tree-container clearfix">
+                                                        <div id="container_328775" class=" sb-bloc sb-bloc-level-3 bloc-element-title  " style="padding: 10px 10px 10px 10px;">
+                                                            <div class="element element-title sb-vi-text-center">
+                                                                <h2><span class="element-title-inner">Mes Pratiques</span></h2>
+                                                            </div>
+                                                        </div>
+                                                        <div id="container_328785" class=" sb-bloc sb-bloc-level-3 bloc-element-menu  " style="padding: 10px 10px 10px 10px;">
+                                                            <div class="element element-menu">
+                                                                <div class=" menu-vertical menu-tabs-zone">
+                                                                    <div class="menu-level-container menu-level-0">
+                                                                        <ul class="menu-tabs sb-row media-query">
+                                                                            {{ render(controller('App\\Controller\\PratiqueController::index', {'id': article.id|default(null)})) }}
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 75.0%;">
+                                        <div id="container_337713" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container  " style="padding: 10px 10px 10px 10px;">
+                                            <div id="container_337713_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_337713_inner">
+                                                <style>
+                                                    .container_337713_inner {
+                                                        position: relative;
+                                                    }
+                                                </style>
+                                                <div class="element element-static-container">
+                                                    <div class="tree-container clearfix">
+                                                        <div id="container_413252" class=" sb-bloc sb-bloc-level-3 bloc-element-image  " style="padding: 10px 10px 10px 10px;">
+                                                            <div id="container_413252_inner" style="" class="sb-bloc-inner container_413252_inner">
+                                                                <style>
+                                                                    .container_413252_inner {
+                                                                        position: relative;
+                                                                    }
+
+                                                                    .container_413252_inner {
+                                                                        width: 100% !important;
+                                                                        max-width: 200px !important;
+                                                                        margin-right: auto !important;
+                                                                        margin-left: auto !important;
+                                                                    }
+                                                                </style>
+                                                                <div id="element-image-13525" class="element element-image" data-id="13525">
+                                                                    <div class="element-image-container redirect_with_no_text">
+                                                                        {% if article.image %}
+                                                                            <img class="sb-vi-img-responsive img-query" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="Image {{ article.title }}" sizes="200px">
+                                                                        {% endif %}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="container_510485" class=" sb-bloc sb-bloc-level-3 bloc-element-title" style="padding: 10px 10px 10px 10px;">
+                                                            <div class="element element-title sb-vi-text-center">
+                                                                <h2>
+                                                                    <span class="element-title-inner" style="font-size: 36px;">
+                                                                        {{ article.title }}
+                                                                        <br>
+                                                                    </span>
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                        <div id="container_413132" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;">
+                                                            <div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                <p style="text-align: justify;">
+                                                                    {{ article.content|raw }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                                                                          </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            {% endif %}
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>

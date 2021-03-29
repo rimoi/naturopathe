@@ -1,0 +1,37 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau commentaire{% endblock %}
+
+{% block body %}
+    <section class="panel important">
+        <h2>Nouveau commentaire</h2>
+
+        {{ form_start(form) }}
+        <div class="twothirds">
+            {{ form_row(form.rate, {'label': 'Votre note'}) }}
+            {{ form_row(form.nickname, {'label': 'Nom', 'attr': {'placeholder': 'Nom'}}) }}
+            {{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Email'}}) }}
+            <div style="display: flex;justify-content: end;align-items: center;">
+                {{ form_label(form.enabled, 'Publiée') }}
+                &nbsp;&nbsp;
+                {{ form_widget(form.enabled) }}
+            </div>
+            {{ form_row(form.content, {'label': 'Avis', 'attr': {'rows': 8, 'cols': 40}}) }}
+        </div>
+        <div class="onethird d-flex">
+            <div class="mt-auto">
+                <input type="submit" value="Soumettre" />
+            </div>
+        </div>
+        <div>
+            <a class="btn-cs-danger" href="{{ path('livre_or_admin') }}">Annuler</a>
+        </div>
+        {{ form_end(form) }}
+    </section>
+
+    {% if livre_or.id %}
+        <div class="text-right">
+            {{ include('livre_or/_delete_form.html.twig') }}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,7 +1,7 @@
 website_site:
     resource: '../../src/Controller/'
     type:     annotation
-    prefix:
-        fr: '/fr'
-        ar: '/ar'
+#    prefix:
+#        fr: '/fr'
+#        ar: '/ar'
 #    host: '%domain_name_short%'

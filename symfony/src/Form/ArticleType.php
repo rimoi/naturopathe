@@ -31,42 +31,45 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class)
-            ->add('titleTranslator', TextType::class)
-            ->add('firstPhone', TextType::class)
-            ->add('lastPhone', TextType::class, [
-                'required' => false
-            ])
             ->add('content', CKEditorType::class, [
                 'required' => false
             ])
-            ->add('categories', EntityType::class, [
-                'class' => Category::class,
-                'choices' => $this->em->getRepository(Category::class)->findBy(['archived' => false]),
-                'multiple' => true,
-                'required' => false,
-                'attr' => [
-                    'class' => 'js-select2',
-                    'style' => "width: 100%",
-                    'placeholder' => 'Choisir une catégorie...',
-                ]
-            ])
-            ->add('communes', EntityType::class, [
-                'class' => Commune::class,
-                'choices' => $this->em->getRepository(Commune::class)->findAll(),
-                'multiple' => true,
-                'required' => false,
-                'attr' => [
-                    'class' => 'js-select2',
-                    'style' => "width: 100%",
-                    'placeholder' => 'Choisir un tag ...',
-                ]
-            ])
             ->add('image', ImageType::class, [
                 'required' => false
-            ])
+            ]);
+
+//        $builder
+//            ->add('titleTranslator', TextType::class)
+//            ->add('firstPhone', TextType::class)
+//            ->add('lastPhone', TextType::class, [
+//                'required' => false
+//            ])
+//            ->add('categories', EntityType::class, [
+//                'class' => Category::class,
+//                'choices' => $this->em->getRepository(Category::class)->findBy(['archived' => false]),
+//                'multiple' => true,
+//                'required' => false,
+//                'attr' => [
+//                    'class' => 'js-select2',
+//                    'style' => "width: 100%",
+//                    'placeholder' => 'Choisir une catégorie...',
+//                ]
+//            ])
+//            ->add('communes', EntityType::class, [
+//                'class' => Commune::class,
+//                'choices' => $this->em->getRepository(Commune::class)->findAll(),
+//                'multiple' => true,
+//                'required' => false,
+//                'attr' => [
+//                    'class' => 'js-select2',
+//                    'style' => "width: 100%",
+//                    'placeholder' => 'Choisir un tag ...',
+//                ]
+//            ])
+
         ;
 
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData']);
+//        $builder->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData']);
     }
 
     public function onPreSetData(FormEvent $event): void
@@ -99,7 +102,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class,
+            'data_class' => Article::class
         ]);
     }
 }

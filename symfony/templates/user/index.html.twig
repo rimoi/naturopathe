@@ -1,50 +1,47 @@
-{% extends 'admin/layout.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Utilisateurs{% endblock %}
 
-{% block body_content %}
-    <h1>User index</h1>
-    <div class="admin-margin">
-        <a class="btn btn-primary" href="{{ path('user_new') }}">Nouveau Utilisateur</a>
-    </div>
-    <table class="table">
-        <thead>
+{% block body %}
+    <section class="panel important">
+        <h2>Liste des utilisateurs</h2>
+
+        <div class="text-right">
+            <a class="btn-primary btn-sm" href="{{ path('user_new') }}">
+                <i class="fas fa-plus"></i>
+                Nouvelle Utilisateur
+            </a>
+        </div>
+
+        <table>
             <tr>
-                <th>Id</th>
                 <th>Email</th>
-                <th >Roles</th>
-                <th>Phone</th>
-                <th>Pseudo</th>
-                <th>actions</th>
+                <th>Roles</th>
+{#                <th>Actions</th>#}
             </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>
-                    {% if user.roles and '[]' != user.roles|json_encode %}
-                        {% if 'ROLE_USER' in user.roles %}
-                            <span class="badge">User</span>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {% if user.roles and '[]' != user.roles|json_encode %}
+                            {% if 'ROLE_USER' in user.roles %}
+                                <span class="badge">User</span>
+                            {% endif %}
+                            {% if  'ROLE_ADMIN' in user.roles %}
+                                <span class="badge">Admin</span>
+                            {% endif %}
                         {% endif %}
-                        {% if  'ROLE_ADMIN' in user.roles %}
-                            <span class="badge">Admin</span>
-                        {% endif %}
-                    {% endif %}
-                </td>
-                <td><span class="badge">{{ user.phone }}</span></td>
-                <td>{{ user.pseudo }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                    </td>
+{#                    <td>#}
+{#                        <a href="{{ path('user_show', {'id': user.id}) }}">Voir</a>#}
+{#                        <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>#}
+{#                    </td>#}
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">Pas d'utilisateur trouvé !</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
 {% endblock %}

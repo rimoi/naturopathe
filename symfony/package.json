@@ -16,7 +16,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
         "bootstrap": "3.3.6",
-        "jquery": "1.12.1",
+        "jquery": "^3.6.0",
         "jqueryui": "^1.11.1",
         "popper.js": "^1.16.1",
         "select2": "^4.0.13",

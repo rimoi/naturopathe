@@ -1,66 +1,58 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/home.html.twig' %}
 
 {% block title %}{{ article.title }}{% endblock %}
 {% block description %}{{ article.content|u.truncate(100, '...')|raw }}{% endblock %}
 
 {% block body %}
-    <!-- BLOG HEADER -->
-    <section id="blog-header" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-sm-12">
-                    <h2>{{ article.title }}</h2>
-                </div>
-                <div class="col-md-7 col-sm-12">
-                    {% if article.image %}
-                        <img class="img-responsive js-image-article" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="Avatar {{ article.title }}">
-                    {% else %}
-                        <img src="{{ asset('build/images/default-image.png') }}" class="img-responsive js-image-article" alt="Image par défaut">
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="container-light sb-row sb-row-table sb-row-custom media-query" id="center">
+        <div class="sb-col sb-col-sm" id="center_inner_wrapper">
+            <div class="" id="blog-wrapper">
+                <section id="center_inner">
 
-    <!-- BLOG DETAIL -->
-    <section id="blog-detail" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-1 col-md-10 col-sm-12">
-                    <!-- BLOG THUMB -->
-                    <div class="blog-detail-thumb">
-                        <small><i class="fa fa-clock-o"></i> {{ article.createdAt|date('d/m/Y à H:m') }}</small>
-                        <div class="pull-right">
-                            {% for category in article.categories %}
-                                <span class="badge badge-danger badge-pill label-tag" title="{{ category.nameTranslate }}">{{ category.name }}</span>
-                            {% endfor %}
-                            {% for commune in article.communes %}
-                                <span class="badge badge-success badge-pill label-tag" title="{{ commune.nameTranslator }}">{{ commune.name }}</span>
-                            {% endfor %}
+                    <section id="blog-article-page" class="">
+                        <div class="blog-article-page-content">
+                            <article class="blog-article full" data-ajax-url="" itemscope="" itemtype="https://schema.org/Article" data-id="14496">
+                                {% if article.image %}
+                                        <meta itemprop="thumbnailUrl" content="{{ app.request.schemeAndHttpHost ~ app.request.baseUrl ~ vich_uploader_asset(article.image, 'imageFile') }}">
+                                {% endif %}
+
+                                <span class="article-cover" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+                                    {% if article.image %}
+                                        <meta itemprop="url" content="{{ app.request.schemeAndHttpHost ~ app.request.baseUrl ~ vich_uploader_asset(article.image, 'imageFile') }}">
+                                    {% endif %}
+
+                <meta itemprop="width" content="800">
+                <meta itemprop="height" content="531">
+              </span>
+                                <div class="blog-article-head">
+                                    <h1 itemprop="headline">
+                                        <span class="blog-article-title">{{ article.title }}</span>
+                                    </h1>
+                                    <meta itemprop="wordCount" content="3404">
+                                    <meta itemprop="keywords" content="">
+                                    <span itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                  <meta itemprop="name" content="Marianne Cordier Derenne - Naturopathe">
+                  <span itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+                  </span>
+                </span>
+                                    <div class="blog-article-subtitle">
+                                        <span itemprop="datePublished" content="2020-05-18T00:00:00+02:00"><i class="fa fa-calendar"></i> {{ article.createdAt|date('d/m/Y') }}</span>
+                                        <meta itemprop="dateModified" content="2020-12-04T18:41:54+01:00">
+                                        <span itemprop="author" itemscope="" itemtype="https://schema.org/Person"><i class="fa fa-user"></i> <span itemprop="name">Fatima Benazzou - Naturopathe</span></span>
+                                        <!-- <span><i class="fa fa-comments"></i> 13 commentaires</span> -->
+                                    </div>
+                                </div>
+                                <div class="blog-article-content" itemprop="articleBody" style="margin-top: 3rem;">
+                                    {{ article.content|raw }}
+                                </div>
+                            </article>
+
                         </div>
-                        <p class="admin-margin">
-                            {{ article.content|raw }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="section-title text-center">
-                <h2></h2>
-                <span class="line-bar">...</span>
-            </div>
-            <div class="row">
-                <div id="user-footer" class="col-md-offset-1">
-                    <img class="img-circle pull-left" style="height: 100px; margin-right: 12px" src="{{ user.image ? vich_uploader_asset(user.image, 'imageFile') }}" alt="Image {{ user.pseudo }}">
-                    <div class="name">
-                        <a href="{{ path('about') }}" class="pseudo">{{ user.pseudo }}</a> <br>
-                        <span class="muted">
-                            {{ article.createdAt|date('F Y') }}
-                        </span>
-                    </div>
-                </div>
+                        <hr>
+
+                    </section>
+                </section>
             </div>
         </div>
-    </section>
-
+    </div>
 {% endblock %}

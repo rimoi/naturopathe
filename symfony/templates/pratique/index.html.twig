@@ -1,0 +1,14 @@
+{% for article in articles %}
+    <li class="menu-tab-container sb-col {{ id is not null and article.id == id ? 'selected' }}">
+        <div class="menu-tab">
+            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('show_article', { 'slug': article.slug }) }}">
+                <span class="link-label" style=''>{{ article.title }}</span>
+            </a>
+        </div>
+    </li>
+    <li class="menu-mobile-element ">
+        <a class="menu-tab-element {{ id is not null and article.id == id ? 'active' }}  content-link" href="{{ path('show_article', { 'slug': article.slug }) }}">
+            <span class="link-label">{{ article.title }}</span>
+        </a>
+    </li>
+{% endfor %}

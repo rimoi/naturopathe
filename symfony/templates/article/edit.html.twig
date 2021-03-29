@@ -1,18 +1,38 @@
-{% extends 'admin/layout.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Edit Article{% endblock %}
 
-{% block body_content %}
-    <h1>Edit Article</h1>
+{% block body %}
+    <section class="panel important">
+        {% block _title %}
+            <h2>Modifier {{ type|capitalize }}</h2>
+        {% endblock %}
 
-    {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ form_start(form) }}
+        <div class="twothirds">
+            {{ form_row(form.title, {'attr': {'placeholder': 'Nom'}}) }}
 
-    <div class="">
+            {{ form_row(form.content, {'attr': {'rows': 8, 'cols': 40}}) }}
+
+            {{ form_row(form.image) }}
+            {% if article.image %}
+                <img src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="" width="290" />
+            {% endif %}
+        </div>
+        <div class="onethird d-flex">
+            <div class="mt-auto">
+                <input type="submit" value="Soumettre" />
+            </div>
+        </div>
         <div>
+            <a class="btn" href="{{ path('article_index_'~type) }}">Annuler</a>
+        </div>
+        {{ form_end(form) }}
+    </section>
+
+    {% if article.id %}
+        <div class="text-right">
             {{ include('article/_delete_form.html.twig') }}
         </div>
-        <div>
-            <a class="btn btn-default" href="{{ path('article_index') }}">< Retour à la liste</a>
-        </div>
-    </div>
+    {% endif %}
 {% endblock %}

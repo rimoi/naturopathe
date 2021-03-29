@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShowArticleController extends BaseController
 {
     /**
-     * @Route("/annonce/{slug}", name="show_article")
+     * @Route("/pratique/{slug}", name="show_article")
      */
     public function index(Article $article)
     {

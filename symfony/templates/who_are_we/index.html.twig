@@ -1,61 +1,78 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/home.html.twig' %}
 
-{% block title %}Mes réalisations{% endblock %}
+{% block title %}Qui je suis ?{% endblock %}
 
 {% block body %}
-    <section id="work" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
+    <style>
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            font-family: Satisfy,cursive,sans-serif!important;
+        }
 
-                <div class="col-md-12 col-sm-12">
-                    <div class="section-title">
-                        <h2></h2>
-                        <span class="line-bar">...</span>
-                    </div>
+        .expert .expertx2 {
+            margin-top: -200px;
+        }
+        .expertx2 .expert-txt {
+            background: #fff;
+            margin: 0 40px 40px 65px;
+            -webkit-box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+            -moz-box-shadow: 0 5px 30px 0 rgba(0,0,0,.1);
+            box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+            padding: 50px;
+            visibility: visible;
+            animation-delay: 0.2s;
+            animation-name: fadeIn;
+        }
+        .expert .expertx2 .avatar {
+            float: left;
+            margin: -110px 30px 20px -110px;
+        }
+        .orange {
+            color: #7f4b61 !important;
+        }
+    </style>
+    <div class="container">
+        <div class="expertx2">
+            <div class="expert-txt wow fadeIn" data-wow-delay="0.2s" data-wow-offset="50" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+                <div class="avatar" style="text-align: center">
+                    <img src="{{ host_image ~ 'fatima.jpg' }}" alt="Fatima BENAZZOUR" class="img-responsive" style="height: 200px">
                 </div>
+                <p style="font-size: 18px; margin: 20px 50px">
+                    Après une carrière de plus de <b>20 ans</b> en tant que technicienne de laboratoire et préleveuse en milieu hospitalier.
+                    <br>
+                    J’ai développé deux maladies auto immunes, au fond de moi je savais que mon hygiène de vie (mauvaise alimentation,
+                    manque de sommeil, mauvais gestion de stress au quotidien etc..) était responsable de mes problèmes de santé.
+                    <br>
+                    Je me suis tournée vers des solutions complémentaires naturelles.
+                    <br>Passionnée par l’univers de la santé verte et des techniques naturelles, j’ai recherché autour de moi des
+                    informations qui pouvaient expliquer les raisons de mes problèmes.
+                    <br>
+                    Le métier de naturopathe m’est apparu comme une évidence.
+                    <br><br>
+                    Je voulais devenir Naturopathe d’abord pour moi afin de mieux me connaitre et mieux comprendre mieux le fonctionnement du corps humain
+                    d’ un point vue holistique, mais aussi en faire mon métier pour aider les personnes qui désirent se prendre en main par des techniques
+                    naturelles.
 
-                <div class="col-md-4 col-sm-6">
-                    <!-- WORK THUMB -->
-                    <div class="work-thumb">
-                        <a href="https://short-edition.com/fr/"  target="_blank">
-                            <img src="{{ asset('build/images/short-edition.jpg') }}" class="img-responsive img-height-265" alt="logo de Short-édition.com">
-                            <div class="work-info">
-                                <h3>Short Edition</h3>
-                                <small> Short Édition est la plateforme littéraire communautaire dédiée aux formats courts : nouvelles, micro-nouvelles, poèmes et BD courte.</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                    <br><br>
+                    J’ai suivi pendant 16 mois la formation de Naturopathe au CENATHO de Paris. Au cours de cette formation, mon attirance pour les techniques de réflexologie, ventouses et massages énergétiques m’ont motivées à me spécialiser dans ces pratiques et à explorer leurs différentes utilisations.
 
-                <div class="col-md-4 col-sm-6">
-                    <!-- WORK THUMB -->
-                    <div class="work-thumb">
-                        <a href="http://www.stylosplumes.com/index.php" target="_blank">
-                            <img src="{{ asset('build/images/mes-stylos-plumes.png') }}" class="img-responsive img-height-265" alt="Logo de stylosplumes.com">
+                    <br><br>
+                    <b>Mes qualifications : </b>
+                    <br><br>
+                    BTS d’analyses biologiques (1995), DU de recherche clinique (2009), formation massage cupping ™ (2017), formation au lifting énergétique aussi appelé aculifting (2017), formation de Praticien de Santé Naturopathe (2017-2018) et formation aux ventouses sèches et humides ou Hijama (2018).
+                </p>
 
-                            <div class="work-info">
-                                <h3>Les plumes d'antan</h3>
-                                <small>Site de Florent Perdrieau un collectionneur de vieux stylos.</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
-                <div class="col-md-4 col-sm-6">
-                    <!-- WORK THUMB -->
-                    <div class="work-thumb">
-                        <a href="http://passion-ulm-isere.com/" target="_blank">
-                            <img src="{{ asset('build/images/passion-ulm-isere.png') }}" class="img-responsive img-height-265" alt="Logo Passion ULM ISERE">
 
-                            <div class="work-info">
-                                <h3>Passion ULM ISERE</h3>
-                                <small>Baptême de l'air en ulm pendulaire et ulm multiaxes, promenade en vallée et en montagne, photos aérienne, initialiation au vol (en place arrière).</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <p class="description" style="text-align: right; margin-top: 16px">
+                    <strong class="orange">Fatima BENAZZOUZ</strong>
+                </p>
             </div>
         </div>
-    </section>
+    </div>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\ArticleEnum;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -27,7 +28,7 @@ class Article
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $titleTranslator;
 
@@ -62,6 +63,11 @@ class Article
      * @ORM\Column(type="text", nullable=true)
      */
     private $content;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $type = ArticleEnum::BLOG;
 
     /**
      * @Gedmo\Slug(fields={"title"})
@@ -308,12 +314,12 @@ class Article
         return $this;
     }
 
-    public function getTitleTranslator()
+    public function getTitleTranslator(): ?string
     {
         return $this->titleTranslator;
     }
 
-    public function setTitleTranslator($titleTranslator): self
+    public function setTitleTranslator(?string $titleTranslator): self
     {
         $this->titleTranslator = $titleTranslator;
 
@@ -352,6 +358,18 @@ class Article
     public function setLastPhone($lastPhone): self
     {
         $this->lastPhone = $lastPhone;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

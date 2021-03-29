@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-    {% set host_image = app.request.schemeAndHttpHost ~ app.request.baseUrl ~ asset('/images/') %}
+{#    {% set host_image = app.request.schemeAndHttpHost ~ app.request.baseUrl ~ asset('/build/images/') %}#}
+    {% set host_image = asset('/build/images/') %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 {#    <script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"4a6b8c9d6c","applicationID":"21630134","transactionName":"cV9dR0JYDQpXQUxBWFVVQBxDXw4R","queueTime":0,"applicationTime":135,"agent":""}</script>#}

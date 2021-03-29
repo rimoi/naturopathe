@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    {% set host_image = app.request.schemeAndHttpHost ~ app.request.baseUrl ~ asset('/images/') %}
+{#    {% set host_image = app.request.schemeAndHttpHost ~ app.request.baseUrl ~ asset('/images/') %}#}
+    {% set host_image = asset('/build/images/') %}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ host_image ~ 'relaxant.png' }}" />

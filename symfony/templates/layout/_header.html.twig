@@ -24,81 +24,106 @@
                 <button class="menu-mobile-button menu-mobile-button-close animated slideInRight"><i class="fa fa-times"></i></button>
                 <ul class="mobile-menu-tabs">
                     <li class="menu-mobile-element ">
-                        <a class="menu-tab-element active content-link content-link-anchor" href="/#body-container">
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') == 'home' ? 'active' }} content-link content-link-anchor" href="{{ path('home') }}">
                             <span class="link-label">Bienvenue</span>
                         </a>  </li>
                     <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="{{ path('who_are_we') }}">
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') == 'who_are_we' ? 'active' }}  content-link" href="{{ path('who_are_we') }}">
                             <span class="link-label">Qui suis-je ?</span>
-                        </a>  </li>
-                    <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="/la-naturopathie">
-                            <span class="link-label">La Naturopathie</span>
-                        </a>  </li>
-                    <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="/quantum2">
-                            <span class="link-label">Quantum</span>
-                        </a>  </li>
-                    <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="/la-consultation">
-                            <span class="link-label">La consultation</span>
-                        </a>  </li>
-                    <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="/partenaires">
-                            <span class="link-label">Partenaires</span>
-                        </a>  </li>
-                    <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="/livre-d-or">
-                            <span class="link-label">Livre d&#39;or</span>
-                        </a>  </li>
-                    <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="/contact">
-                            <span class="link-label">Contact</span>
-                        </a>  </li>
+                        </a>
+                    </li>
+
                     <li class="menu-mobile-element menu-mobile-element-with-subfolder">
                         <div class="menu-tab-element element element-folder">
                             <button class="folder-label-opener">
-        <span class="open-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                     viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
-      <style type="text/css">.st0{fill:none;stroke:#000000;stroke-width:30;stroke-miterlimit:10;}</style>
-      <g><line class="st0" x1="-1" y1="249.5" x2="500" y2="249.5"/></g>
-      <g><line class="st0" x1="249.5" y1="0" x2="249.5" y2="499"/></g>
-    </svg></span>
-                                <span class="close-icon" style="display: none;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                                                     viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
-      <style type="text/css">.st0{fill:none;stroke:#000000;stroke-width:30;stroke-miterlimit:10;}</style>
-      <g><line class="st0" x1="-1" y1="249.5" x2="500" y2="249.5"/></g>
-    </svg></span>
+                            <span class="open-icon">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                             viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+                                  <style type="text/css">.st0{fill:none;stroke:#000000;stroke-width:30;stroke-miterlimit:10;}</style>
+                                  <g><line class="st0" x1="-1" y1="249.5" x2="500" y2="249.5"/></g>
+                                  <g><line class="st0" x1="249.5" y1="0" x2="249.5" y2="499"/></g>
+                                </svg>
+                            </span>
+                                <span class="close-icon" style="display: none;">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+                                      <style type="text/css">.st0{fill:none;stroke:#000000;stroke-width:30;stroke-miterlimit:10;}</style>
+                                      <g><line class="st0" x1="-1" y1="249.5" x2="500" y2="249.5"/></g>
+                                    </svg>
+                                </span>
                             </button>
-                            <span class="link-label">Blog</span>
+                            <span class="link-label">Mes pratiques</span>
                         </div>
                         <ul class="mobile-menu-tabs">
-                            <li class="menu-mobile-element ">
-                                <a class="menu-tab-element  content-link" href="/blog">
-                                    <span class="link-label">Actualité Cabinet</span>
-                                </a>  </li>
-                            <li class="menu-mobile-element ">
-                                <a class="menu-tab-element  content-link" href="/blog/categories/alimentation">
-                                    <span class="link-label">Alimentation</span>
-                                </a>  </li>
-                            <li class="menu-mobile-element ">
-                                <a class="menu-tab-element  content-link" href="/blog/categories/recettes-de-cuisine">
-                                    <span class="link-label">Recettes</span>
-                                </a>  </li>
-                            <li class="menu-mobile-element ">
-                                <a class="menu-tab-element  content-link" href="/blog/categories/outils">
-                                    <span class="link-label">Outils</span>
-                                </a>  </li>
-                            <li class="menu-mobile-element ">
-                                <a class="menu-tab-element  content-link" href="/blog/categories/huiles-essentielles">
-                                    <span class="link-label">Huiles essentielles</span>
-                                </a>  </li>
+                            {{ render(controller('App\\Controller\\PratiqueController::index', {'id': article.id|default(null)})) }}
                         </ul>
                     </li>
+
+
+
+
                     <li class="menu-mobile-element ">
-                        <a class="menu-tab-element  content-link" href="">
-                            <span class="link-label">Lien</span>
-                        </a>  </li>
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') == 'prestation' ? 'active' }}  content-link" href="{{ path('prestation') }}">
+                            <span class="link-label">Mes Prestations</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-mobile-element ">
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') == 'tarif' ? 'active' }}  content-link" href="{{ path('tarif') }}">
+                            <span class="link-label">Tarifs</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-mobile-element ">
+                        <a class="menu-tab-element content-link" target="_blank" href="https://www.facebook.com/watch/?v=2015289398714972">
+                            <span class="link-label">Media</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-mobile-element ">
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') == 'partenaire' ? 'active' }}  content-link" href="{{ path('partenaire') }}">
+                            <span class="link-label">Partenaires</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-mobile-element ">
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') == 'livre_or_index' ? 'active' }}  content-link" href="{{ path('livre_or_index') }}">
+                            <span class="link-label">Livre d&#39;or</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-mobile-element ">
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') == 'contact' ? 'active' }}  content-link" href="{{ path('contact') }}">
+                            <span class="link-label">Contact</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-mobile-element ">
+                        <a class="menu-tab-element {{ app.request.attributes.get('_route') starts with 'blog_' ? 'active' }}  content-link" href="{{ path('blog_index') }}">
+                            <span class="link-label">Blog</span>
+                        </a>
+                    </li>
+
+                    {% if app.user and app.user.admin %}
+                        <li class="menu-mobile-element ">
+                            <a class="menu-tab-element content-link" href="{{ path('admin') }}">
+                                <span class="link-label">Admin</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if not app.user %}
+                        <li class="menu-mobile-element ">
+                            <a class="menu-tab-element content-link" href="{{ path('app_login') }}">
+                                <span class="link-label">Login</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="menu-mobile-element ">
+                            <a class="menu-tab-element content-link" href="{{ path('app_logout') }}">
+                                <span class="link-label">Logout</span>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -117,7 +142,7 @@
                                     </li>
                                     <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'who_are_we' ? 'selected' }}">
                                         <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="/qui-suis-je">
+                                            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('who_are_we') }}">
                                                 <span class="link-label" style=''>Qui suis-je ?</span>
                                             </a>      </div>
                                     </li>

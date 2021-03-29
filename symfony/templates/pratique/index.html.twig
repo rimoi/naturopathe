@@ -6,4 +6,9 @@
             </a>
         </div>
     </li>
+    <li class="menu-mobile-element ">
+        <a class="menu-tab-element {{ id is not null and article.id == id ? 'active' }}  content-link" href="{{ path('show_article', { 'slug': article.slug }) }}">
+            <span class="link-label">{{ article.title }}</span>
+        </a>
+    </li>
 {% endfor %}

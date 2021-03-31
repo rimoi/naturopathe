@@ -18,6 +18,12 @@
             {% if article.image %}
                 <img src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="" width="290" />
             {% endif %}
+
+            {% if 'font' in form|keys %}
+                {{ form_label(form.font) }}
+                {{ form_widget(form.font) }}
+                {{ form_help(form.font) }}
+            {% endif %}
         </div>
         <div class="onethird d-flex">
             <div class="mt-auto">
@@ -25,7 +31,7 @@
             </div>
         </div>
         <div>
-            <a class="btn" href="{{ path('article_index_'~type) }}">Annuler</a>
+            <a class="btn-cs-danger" href="{{ path('article_index_'~type) }}">Annuler</a>
         </div>
         {{ form_end(form) }}
     </section>

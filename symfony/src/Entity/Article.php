@@ -28,9 +28,11 @@ class Article
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * Cela va service à changer le font awesome sur la page d'accueil
+     *
+     * @ORM\Column(name="font",type="string", length=255, nullable=true)
      */
-    private $titleTranslator;
+    private $font;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -314,17 +316,23 @@ class Article
         return $this;
     }
 
-    public function getTitleTranslator(): ?string
+    /**
+     * @return mixed
+     */
+    public function getFont()
     {
-        return $this->titleTranslator;
+        return $this->font;
     }
 
-    public function setTitleTranslator(?string $titleTranslator): self
+    /**
+     * @param mixed $font
+     */
+    public function setFont($font): self
     {
-        $this->titleTranslator = $titleTranslator;
-
+        $this->font = $font;
         return $this;
     }
+
 
     /**
      * @return mixed

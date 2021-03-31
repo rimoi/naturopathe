@@ -38,6 +38,17 @@ class ArticleType extends AbstractType
                 'required' => false
             ]);
 
+        if ($options['show']) {
+            $builder->add('font', TextType::class, [
+                'required' => false,
+                'label' => 'icon',
+                'attr' => [
+                    'placeholder'=> 'fa-superpowers'
+                ],
+                'help' => "Voir ceci pour chercher l'icon : https://fontawesome.com/v4.7.0/icons/"
+            ]);
+        }
+
 //        $builder
 //            ->add('titleTranslator', TextType::class)
 //            ->add('firstPhone', TextType::class)
@@ -102,7 +113,8 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class
+            'data_class' => Article::class,
+            'show' => false
         ]);
     }
 }

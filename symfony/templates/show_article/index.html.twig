@@ -68,13 +68,6 @@
                                                                         margin-left: auto !important;
                                                                     }
                                                                 </style>
-                                                                <div id="element-image-13525" class="element element-image" data-id="13525">
-                                                                    <div class="element-image-container redirect_with_no_text">
-                                                                        {% if article.image %}
-                                                                            <img class="sb-vi-img-responsive img-query" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="Image {{ article.title }}" sizes="200px">
-                                                                        {% endif %}
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div id="container_510485" class=" sb-bloc sb-bloc-level-3 bloc-element-title" style="padding: 10px 10px 10px 10px;">
@@ -94,7 +87,16 @@
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                                                                          </div>
+
+                                                        <div id="element-image-13525" class="element element-image" data-id="13525">
+                                                            <div class="element-image-container redirect_with_no_text" style="display: flex;justify-content: center;">
+                                                                {% if article.image %}
+                                                                    <img class="sb-vi-img-responsive img-query" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt="Image {{ article.title }}" style="border-radius: 5px; width: 62%">
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

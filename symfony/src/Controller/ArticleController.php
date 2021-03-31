@@ -25,12 +25,12 @@ class ArticleController extends BaseController
     {
         if( $request->get('_route') === 'article_index_technique') {
             return $this->render('article/list_technique.html.twig', [
-                'articles' => $articleRepository->findBy(['type' => ArticleEnum::TECHNIQUE, 'archived' => false])
+                'articles' => $articleRepository->findBy(['type' => ArticleEnum::TECHNIQUE, 'archived' => false], ['id' => 'DESC'])
             ]);
         }
 
         return $this->render('article/list_blog.html.twig', [
-            'articles' => $articleRepository->findBy(['type' => ArticleEnum::BLOG, 'archived' => false])
+            'articles' => $articleRepository->findBy(['type' => ArticleEnum::BLOG, 'archived' => false], ['id' => 'DESC'])
         ]);
     }
 
@@ -44,7 +44,7 @@ class ArticleController extends BaseController
         }
 
         $article = new Article();
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = $this->createForm(ArticleType::class, $article, ['show' => $type === ArticleEnum::TECHNIQUE]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -84,7 +84,7 @@ class ArticleController extends BaseController
             throw $this->createNotFoundException('Type l\'article inconnue !');
         }
 
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = $this->createForm(ArticleType::class, $article, ['show' => $type === ArticleEnum::TECHNIQUE]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

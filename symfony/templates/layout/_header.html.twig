@@ -14,7 +14,13 @@
                 <button class="menu-mobile-button menu-mobile-button-open"><i class="fa fa-bars"></i></button>
                 <div class="header-mobile-texts pull-left">
                     <div class="header-mobile-title sb-row">
-                        <div id="container_324250" class=" sb-bloc sb-bloc-level-3 header1-title bloc-element-title  " style="padding: 10px 10px 10px 10px;"><div class="element element-title theme-skin"><strong><span class="element-title-inner">Fatima BENAZZOUZ</span></strong></div></div>
+                        <div id="container_324250" class=" sb-bloc sb-bloc-level-3 header1-title bloc-element-title  " style="padding: 10px 10px 10px 10px;">
+                            <div class="element element-title theme-skin">
+                                <strong>
+                                    <a href="{{ path('home') }}"><span class="element-title-inner">Fatima BENAZZOUZ</span></a>
+                                </strong>
+                            </div>
+                        </div>
                     </div>
                     <div class="header-mobile-subtitle sb-row">
                         <div id="container_324251" class=" sb-bloc sb-bloc-level-3 header1-subtitle bloc-element-title  " style="padding: 10px 10px 10px 10px;">
@@ -139,15 +145,20 @@
 </div>
 <div class="sb-container-fluid" id="body-container-inner">
 
-    <div class="container-light" id="header1"><div class="sb-row sb-hidden-xs sb-hidden-sm"><div class="sb-col sb-col-sm"><div id="container_324253" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-absolute-container  " style="height: 110px;"><div id="container_324253_inner" style="" class="sb-bloc-inner container_324253_inner"><div class="element element-absolute-container"><div class="tree-container"><div id="container_324250" class="sb-bloc-alignment-wrapper  sb-bloc-alignment-h-v sb-bloc-alignment-h-center sb-bloc-alignment-v-top  "><div class="sb-bloc-alignment-sibling"></div><div class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute header1-title bloc-element-title" style="top: 35.0%;left: 35.0%;"><div id="container_324250_inner" style="margin: 10px 10px 10px 10px;" class="sb-bloc-inner container_324250_inner"><div class="element element-title theme-skin"><strong><span class="element-title-inner">Fatima BENAZZOUZ</span></strong></div></div></div></div><div id="container_324251" class="sb-bloc-alignment-wrapper  sb-bloc-alignment-h sb-bloc-alignment-h-center  "><div class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute header1-subtitle bloc-element-title" style="top: 50.0%;left: 0.0%;"><div id="container_324251_inner" style="margin: 10px 10px 10px 10px;" class="sb-bloc-inner container_324251_inner"><div class="element element-title sb-vi-text-center theme-skin"><strong><span class="element-title-inner">Praticienne de santé Naturopathe</span></strong></div></div></div></div></div></div></div></div>
+    <div class="container-light" id="header1"><div class="sb-row sb-hidden-xs sb-hidden-sm"><div class="sb-col sb-col-sm"><div id="container_324253" class=" sb-bloc sb-bloc-level-3 resizable-y bloc-element-absolute-container  " style="height: 110px;"><div id="container_324253_inner" style="" class="sb-bloc-inner container_324253_inner"><div class="element element-absolute-container"><div class="tree-container"><div id="container_324250" class="sb-bloc-alignment-wrapper  sb-bloc-alignment-h-v sb-bloc-alignment-h-center sb-bloc-alignment-v-top  "><div class="sb-bloc-alignment-sibling"></div><div class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute header1-title bloc-element-title" style="top: 35.0%;left: 35.0%;"><div id="container_324250_inner" style="margin: 10px 10px 10px 10px;" class="sb-bloc-inner container_324250_inner"><div class="element element-title theme-skin"><strong>
+                                                    <a href="{{ path('home') }}"> <span class="element-title-inner">Fatima BENAZZOUZ</span></a>
+
+                                                </strong></div></div></div></div><div id="container_324251" class="sb-bloc-alignment-wrapper  sb-bloc-alignment-h sb-bloc-alignment-h-center  "><div class=" sb-bloc sb-bloc-level-3 sb-bloc-position-absolute header1-subtitle bloc-element-title" style="top: 50.0%;left: 0.0%;"><div id="container_324251_inner" style="margin: 10px 10px 10px 10px;" class="sb-bloc-inner container_324251_inner"><div class="element element-title sb-vi-text-center theme-skin"><strong><span class="element-title-inner">Praticienne de santé Naturopathe</span></strong></div></div></div></div></div></div></div></div>
             </div></div></div><div class="sb-hidden-xs sb-hidden-sm" id="menu"><div class="sb-row sb-hidden-xs sb-hidden-sm"><div class="sb-col sb-col-sm"><div id="container_324247" class=" sb-bloc sb-bloc-level-3 bloc-element-menu  " style=""><div class="element element-menu"><div class=""><div class="menu-level-container menu-level-0">
                                 <ul class="menu-tabs sb-row media-query">
-                                    <li class="menu-tab-container sb-col  {{ app.request.attributes.get('_route') == 'home' ? 'selected' }} ">
-                                        <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link content-link-anchor" href="{{ path('home') }}">
-                                                <span class="link-label" style=''>Bienvenue</span>
-                                            </a>      </div>
-                                    </li>
+{#                                    <li class="menu-tab-container sb-col  {{ app.request.attributes.get('_route') == 'home' ? 'selected' }} ">#}
+{#                                        <div class="menu-tab">#}
+{#                                            <a class="menu-tab-element link-text link-text-dark content-link content-link-anchor" href="{{ path('home') }}">#}
+{#                                                <span class="link-label" style=''>#}
+{#                                                    Bienvenue#}
+{#                                                </span>#}
+{#                                            </a>      </div>#}
+{#                                    </li>#}
                                     <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'who_are_we' ? 'selected' }}">
                                         <div class="menu-tab">
                                             <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('who_are_we') }}">
@@ -184,19 +195,20 @@
                                             </a>
                                         </div>
                                     </li>
-                                    <li class="menu-tab-container sb-col">
-                                        <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" target="_blank" href="https://www.facebook.com/watch/?v=2015289398714972">
-                                                <span class="link-label" style=''>Media</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'partenaire' ? 'selected' }}">
-                                        <div class="menu-tab">
-                                            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('partenaire') }}">
-                                                <span class="link-label" style=''>Partenaires</span>
-                                            </a>      </div>
-                                    </li>
+{#                                    <li class="menu-tab-container sb-col">#}
+{#                                        <div class="menu-tab">#}
+{#                                            <a class="menu-tab-element link-text link-text-dark content-link" target="_blank" href="https://www.facebook.com/watch/?v=2015289398714972">#}
+{#                                                <span class="link-label" style=''>#}
+{#                                                    Media</span>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </li>#}
+{#                                    <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'partenaire' ? 'selected' }}">#}
+{#                                        <div class="menu-tab">#}
+{#                                            <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('partenaire') }}">#}
+{#                                                <span class="link-label" style=''>Partenaires</span>#}
+{#                                            </a>      </div>#}
+{#                                    </li>#}
                                     <li class="menu-tab-container sb-col {{ app.request.attributes.get('_route') == 'livre_or_index' ? 'selected' }}">
                                         <div class="menu-tab">
                                             <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('livre_or_index') }}">

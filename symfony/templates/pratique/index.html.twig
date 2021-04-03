@@ -1,5 +1,15 @@
+<style>
+    @media (max-width: 900px) {
+        .element-menu>.menu-vertical .menu-tab-container.cs-menu-en-bas {
+            display: none !important;
+        }
+    }
+
+</style>
+
+
 {% for article in articles %}
-    <li class="menu-tab-container sb-col {{ id is not null and article.id == id ? 'selected' }}">
+    <li class="cs-menu-en-bas menu-tab-container sb-col {{ id is not null and article.id == id ? 'selected' }}">
         <div class="menu-tab">
             <a class="menu-tab-element link-text link-text-dark content-link" href="{{ path('show_article', { 'slug': article.slug }) }}">
                 <span class="link-label" style=''>{{ article.title }}</span>
@@ -7,7 +17,7 @@
         </div>
     </li>
     <li class="menu-mobile-element ">
-        <a class="menu-tab-element {{ id is not null and article.id == id ? 'active' }}  content-link" href="{{ path('show_article', { 'slug': article.slug }) }}">
+        <a class="menu-tab-element link-text link-text-dark {{ id is not null and article.id == id ? 'active' }}  content-link" href="{{ path('show_article', { 'slug': article.slug }) }}">
             <span class="link-label">{{ article.title }}</span>
         </a>
     </li>

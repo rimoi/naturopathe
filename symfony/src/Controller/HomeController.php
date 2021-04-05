@@ -16,16 +16,14 @@ class HomeController extends BaseController
     {
         $articles = $articleRepository->findBy(['archived' => false, 'type' => ArticleEnum::TECHNIQUE]);
 
+        $firstArticle = null;
+        if (count($articles) % 2 !== 0) {
+            $firstArticle = array_shift($articles);
+        }
+
         return $this->render('home/home.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
+            'first_article' => $firstArticle
         ]);
     }
-
-
-//    public function searchArticle(Request $request, $articles): Response
-//    {
-//        return $this->render('home/search.html.twig', [
-//            'articles' => $articles,
-//        ]);
-//    }
 }

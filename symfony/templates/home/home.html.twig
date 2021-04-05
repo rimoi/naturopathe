@@ -467,6 +467,36 @@
                                                                 <div class="tree-container clearfix">
                                                                     <div class="sb-row sb-row-custom subcontainers media-query">
 
+                                                                        {% if first_article is defined and first_article is not null %}
+                                                                            <div class="test sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 100%;">
+                                                                                <div id="container_324372" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">
+                                                                                    <div id="container_324372_inner" style="padding: 10px 10px 10px 10px;" class="sb-bloc-inner container_324372_inner">
+                                                                                        <div class="element element-static-container">
+                                                                                            <div class="tree-container clearfix">
+                                                                                                <div id="container_324426" class="sb-bloc sb-bloc-level-3 bloc-element-icon" style="padding: 10px 10px 10px 10px;">
+                                                                                                    <div class="element element-icon icon-md sb-vi-text-center">
+                                                                                                        <a title="{{ first_article.title }}" class="content-link" href="{{ path('show_article', {slug: first_article.slug}) }}">
+                                                                                                            <div class="element-icon-container element-icon-circle element-icon-size-3x color-c-2 border-color-c-2 has_border" style="" data-has-border=&quot;true&quot;>
+                                                                                                                <i class="fa {{ first_article.font }} fa-fw"></i>
+                                                                                                            </div>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div id="container_324399" class=" sb-bloc sb-bloc-level-3 bloc-element-text  " style="padding: 10px 10px 10px 10px;">
+                                                                                                    <div class="element element-text displayed_in_1_column" spellcheck="true">
+                                                                                                        <p style="text-align: center;">
+                                                                                                            <strong>{{ first_article.title }}</strong>
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        {% endif %}
+
+
                                                                 {% for k, article in articles|filter((article, k) => k is divisible by(2) ) %}
                                                                     <div class=" sb-bloc sb-bloc-level-2 sb-col sb-col-sm" style="width: 50.0%;">
                                                                         <div id="container_324372" class=" sb-bloc sb-bloc-level-3 bloc-element-static-container" style="padding: 0px 10px 0px 10px;">

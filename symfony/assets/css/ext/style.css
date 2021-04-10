@@ -1,0 +1,9 @@
+.GoldenBadge {
+    background-color: #7f4b61;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 500;
+    color: white;
+}

@@ -26,6 +26,8 @@ class ContactType extends AbstractType
                 'width' => 250,
                 'height' => 70,
                 'length' => 4,
+                'reload' => true,
+                'as_url' => true
             ])
         ;
     }

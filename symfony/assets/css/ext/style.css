@@ -7,3 +7,11 @@
     font-weight: 500;
     color: white;
 }
+.sb-vi-form-group {
+    text-align: center;
+}
+.captcha_reload {
+    color: #7f4b61;
+    margin-top: -6px;
+    display: block;
+}

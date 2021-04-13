@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\User;
+use App\Enum\ArticleEnum;
 use App\Repository\ArticleRepository;
 use App\Controller\BaseController;
 use App\Services\VisitManager;
@@ -18,7 +19,7 @@ class BlogController extends BaseController
      */
     public function index(ArticleRepository $articleRepository)
     {
-        $articles =  $articleRepository->findBy(['archived' => false], ['id' => 'desc']);
+        $articles =  $articleRepository->findBy(['archived' => false, 'type' => ArticleEnum::BLOG], ['id' => 'desc']);
 
         return $this->render('blog/index.html.twig', compact('articles'));
     }

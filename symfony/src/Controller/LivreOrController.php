@@ -17,11 +17,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class LivreOrController extends BaseController
 {
     /**
-     * @Route("/", name="livre_or_index", methods={"GET", "POST"}, options={"expose": true})
+     * @Route("/", name="livre_or_index", methods={"GET", "POST"}, options={"expose": true, "sitemap"={"priority" = 0.7, "changefreq" = "weekly" }})
      */
     public function index(Request $request, LivreOrRepository $livreOrRepository): Response
     {
-
         $livreOr = new LivreOr();
         $form = $this->createForm(LivreOrType::class, $livreOr);
         $form->handleRequest($request);

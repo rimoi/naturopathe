@@ -16,7 +16,9 @@ class SitemapSubscriber implements EventSubscriberInterface
     private $articleRepository;
     private $urlGenerator;
 
-    public function __construct(ArticleRepository $articleRepository, UrlGeneratorInterface $urlGenerator)
+    public function __construct(ArticleRepository $articleRepository,
+                                UrlGeneratorInterface $urlGenerator
+                                )
     {
         $this->articleRepository = $articleRepository;
         $this->urlGenerator = $urlGenerator;

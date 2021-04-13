@@ -103,8 +103,7 @@
     </div>
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
+{% block end_footer %}
     <script>
         $(function (){
             $('.js-submit').on('submit', function (e){

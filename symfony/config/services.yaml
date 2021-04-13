@@ -5,10 +5,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     app.upload.article: /uploads/images/articles
-    app.email.from: 'sidilekhalifa1@gmail.com'
-    app.email.to: 'sidi.khalifa@live.fr'
-    router.request_context.host: sidi-lekhalifa.fr
-    router.request_context.scheme: http
+    app.email.from: 'no.reply.this.email.never@gmail.com'
+    app.email.to: 'benazzouzfatima@yahoo.fr'
+    router.request_context.host: fatima-benazzouz.fr
+    router.request_context.scheme: https
 services:
     # default configuration for services in *this* file
     _defaults:

@@ -48,39 +48,6 @@ class ArticleType extends AbstractType
                 'help' => "Voir ceci pour chercher l'icon : https://fontawesome.com/v4.7.0/icons/"
             ]);
         }
-
-//        $builder
-//            ->add('titleTranslator', TextType::class)
-//            ->add('firstPhone', TextType::class)
-//            ->add('lastPhone', TextType::class, [
-//                'required' => false
-//            ])
-//            ->add('categories', EntityType::class, [
-//                'class' => Category::class,
-//                'choices' => $this->em->getRepository(Category::class)->findBy(['archived' => false]),
-//                'multiple' => true,
-//                'required' => false,
-//                'attr' => [
-//                    'class' => 'js-select2',
-//                    'style' => "width: 100%",
-//                    'placeholder' => 'Choisir une catégorie...',
-//                ]
-//            ])
-//            ->add('communes', EntityType::class, [
-//                'class' => Commune::class,
-//                'choices' => $this->em->getRepository(Commune::class)->findAll(),
-//                'multiple' => true,
-//                'required' => false,
-//                'attr' => [
-//                    'class' => 'js-select2',
-//                    'style' => "width: 100%",
-//                    'placeholder' => 'Choisir un tag ...',
-//                ]
-//            ])
-
-        ;
-
-//        $builder->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData']);
     }
 
     public function onPreSetData(FormEvent $event): void

@@ -15,6 +15,7 @@ class ImageType extends AbstractType
         $builder
             ->add('imageFile', FileType::class, [
                 'label' => ' ',
+                'required' => false,
                 'attr' => [
                     'style' => 'margin-bottom: 15px; margin-top: 5px',
                 ]

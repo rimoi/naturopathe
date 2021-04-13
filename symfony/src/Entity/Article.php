@@ -77,7 +77,10 @@ class Article
      */
     private $slug;
 
-    /** @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}) */
+    /**
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     */
     private $image;
 
     /** @ORM\ManyToMany(targetEntity="Commune", inversedBy="article", cascade={"persist"}) */

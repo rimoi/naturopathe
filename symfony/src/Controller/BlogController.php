@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends BaseController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/", name="index", options={"sitemap" = {"priority" = 0.7, "changefreq" = "daily"}})
      */
     public function index(ArticleRepository $articleRepository)
     {

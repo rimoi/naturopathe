@@ -64,9 +64,9 @@ class LivreOrController extends BaseController
         $error = 1;
         if ($id = $request->get('id')) {
             $comment = $livreOrRepository->find($id);
-            $type = $request->get('deleted');
+            $type = $request->get('type');
             if ($type === 'deleted') {
-                $comment->setArchived(!$comment->getArchived());
+                $comment->setArchived(true);
             } else {
                 $comment->setEnabled(true);
             }

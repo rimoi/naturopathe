@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends BaseController
 {
     /**
-     * @Route("/contact", name="contact", options={"sitemap" = true})
+     * @Route("/contact", name="contact", options={"sitemap"=true})
      */
     public function index(Request $request, MailerInterface $mailer)
     {

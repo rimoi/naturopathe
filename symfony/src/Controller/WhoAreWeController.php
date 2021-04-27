@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class WhoAreWeController extends BaseController
 {
     /**
-     * @Route("qui-suis-je", name="who_are_we", options={"sitemap" = true})
+     * @Route("qui-suis-je", name="who_are_we", options={"sitemap"=true})
      */
     public function index()
     {

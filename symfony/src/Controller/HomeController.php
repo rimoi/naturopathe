@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends BaseController
 {
-    /** @Route("/", name="home", options={"expose"=true}) */
+    /** @Route("/", name="home", options={"expose"=true, "sitemap"=true}) */
     public function index(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findBy(['archived' => false, 'type' => ArticleEnum::TECHNIQUE]);
